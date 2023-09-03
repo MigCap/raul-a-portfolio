@@ -1,7 +1,9 @@
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
+import {documentInternationalization} from '@sanity/document-internationalization'
 import {schemaTypes} from './schemas'
+import {supportedLanguages} from './schemas/objects/localeStringType'
 
 export default defineConfig({
   name: 'default',
@@ -10,7 +12,18 @@ export default defineConfig({
   projectId: 'ynv31bfd',
   dataset: 'production',
 
-  plugins: [deskTool(), visionTool()],
+  plugins: [
+    deskTool(),
+    visionTool(),
+    documentInternationalization({
+      // Required configuration
+      supportedLanguages,
+      schemaTypes: ['works'],
+      // Optional
+      // Customizes the name of the language field
+      languageField: `language` // defaults to "language"
+    }),
+  ],
 
   schema: {
     types: schemaTypes,
