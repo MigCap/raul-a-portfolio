@@ -1,4 +1,4 @@
-import {defineType} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'works',
@@ -28,6 +28,15 @@ export default defineType({
       title: 'Title',
       type: 'string',
     },
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    }),
     {
       name: 'description',
       title: 'Description',
@@ -54,18 +63,25 @@ export default defineType({
         hotspot: true,
       },
     },
-    {
-      name: 'tags',
-      title: 'Tags',
+    defineField({
+      name: 'categories',
+      title: 'Categories',
       type: 'array',
-      of: [
-        {
-          name: 'tag',
-          title: 'Tag',
-          type: 'string',
-        },
-      ],
+      of: [{type: 'reference', to: {type: 'category'}}],
       fieldset: 'content',
-    },
+    }),
+    // {
+    //   name: 'tags',
+    //   title: 'Tags',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       name: 'tag',
+    //       title: 'Tag',
+    //       type: 'string',
+    //     },
+    //   ],
+    //   fieldset: 'content',
+    // },
   ],
 })
