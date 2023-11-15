@@ -63,11 +63,4 @@ export function getWorksPatch(currentLang: string) {
   return `/${currentLang}/${worksPath}/`;
 }
 
-export function mapWorkToLang(lang: string, work: any) {
-  return {
-    ...work,
-    title: work.title?.find((e: any) => e['_key'] === lang).value || work.title,
-    slug: work.slug.current,
-    img: urlForImage(work.imgUrl.asset),
-  };
-}
+

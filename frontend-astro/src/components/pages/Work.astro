@@ -10,23 +10,17 @@ import Grid from '@/components/Grid.astro';
 
 import { about } from '@/i18n/ui';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import { mapWorksForMainList } from '@/sanity/utils';
+import { mapCategories, mapWorksForMainList } from '@/sanity/utils';
+import { getWorksQuery, getCategoriesQuery } from '@/sanity/queries';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const fetchedWorks = await useSanityClient().fetch(`*[_type == "works"]`);
+const fetchedWorks = await useSanityClient().fetch(getWorksQuery());
 const works = mapWorksForMainList(fetchedWorks, lang);
 
-const fetchedCategories = await useSanityClient().fetch(
-  `*[_type == "categories"]`,
-);
-const categories = fetchedCategories.map((category: any) => {
-  return {
-    ...category,
-    id: category._id,
-  };
-});
+const fetchedCategories = await useSanityClient().fetch(getCategoriesQuery());
+const categories = mapCategories(fetchedCategories);
 ---
 
 <BaseLayout

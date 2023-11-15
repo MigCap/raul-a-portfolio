@@ -5,7 +5,8 @@ import ContactCTA from '@/components/ContactCTA.astro';
 import Hero from '@/components/Hero.astro';
 import Icon from '@/components/Icon.astro';
 import Pill from '@/components/Pill.astro';
-import { getLangFromUrl, getWorksPatch, mapWorkToLang } from '@/i18n/utils';
+import { getLangFromUrl, getWorksPatch } from '@/i18n/utils';
+import { mapWorkToLang } from '@/sanity/utils';
 
 interface Props {
   entry: any;

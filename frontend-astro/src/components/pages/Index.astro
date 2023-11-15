@@ -1,5 +1,6 @@
 ---
 // import { getCollection } from 'astro:content';
+import { useSanityClient } from '@sanity/astro';
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -15,43 +16,19 @@ import PortfolioPreview from '@/components/PortfolioPreview.astro';
 // Page section components
 import ContactCTA from '@/components/ContactCTA.astro';
 import Skills from '@/components/Skills.astro';
-import { useSanityClient } from '@sanity/astro';
-import { urlForImage } from '@/sanity/utils/urlForImage';
+
+// Utils
 import { getLangFromUrl, getWorksPatch, useTranslations } from '@/i18n/utils';
 import { about } from '@/i18n/ui';
+import { mapWorksForMainList, sortWorksByMostRecent } from '@/sanity/utils';
+import { getWorksQuery } from '@/sanity/queries';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const fetchedWorks = await useSanityClient().fetch(
-  `*[_type == "works" && language == '${lang}']`,
-);
-const projectsReduced = fetchedWorks.reduce((acc: any, project: any) => {
-  if (project.show_in_main_work_list) {
-    acc = [
-      ...acc,
-      {
-        data: {
-          ...project,
-          img: urlForImage(project.imgUrl.asset),
-        },
-        slug: project.slug.current,
-      },
-    ];
-  }
-  return acc;
-}, []);
-const projects = projectsReduced
-  .sort(
-    (
-      a: { data: { _createdAt: number } },
-      b: { data: { _createdAt: number } },
-    ) => b.data._createdAt.valueOf() - a.data._createdAt.valueOf(),
-  )
-  .slice(0, 4);
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+const fetchedWorks = await useSanityClient().fetch(getWorksQuery());
+const works = mapWorksForMainList(fetchedWorks, lang);
+const mostRecentWorks = sortWorksByMostRecent(works).slice(0, 4);
 ---
 
 <BaseLayout>
@@ -94,9 +71,9 @@ const projects = projectsReduced
         <div class="gallery">
           <Grid variant="offset">
             {
-              projects.map((project: any) => (
+              mostRecentWorks.map((work: any) => (
                 <li>
-                  <PortfolioPreview project={project} />
+                  <PortfolioPreview work={work} />
                 </li>
               ))
             }

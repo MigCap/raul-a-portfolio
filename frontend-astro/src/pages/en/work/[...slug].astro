@@ -1,5 +1,6 @@
 ---
 import WorkSlugComponent from '@/components/pages/WorkSlug.astro';
+import { getWorksQuery } from '@/sanity/queries';
 import { useSanityClient } from '@sanity/astro';
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const works = await useSanityClient().fetch(`*[_type == "works"]`);
+  const works = await useSanityClient().fetch(getWorksQuery());
 
   return works.map((work: any) => {
     return {
