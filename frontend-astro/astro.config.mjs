@@ -16,6 +16,9 @@ export default defineConfig({
       useCdn: false,
     }),
   ],
+  redirects: {
+    '/': '/en/'
+  }
   // output: 'hybrid',
   // output: 'server',
   // adapter: vercel(),
