@@ -1,10 +1,15 @@
 import { urlForImage } from '@/sanity/utils';
 
+function getFieldValueByLang(lang: string, field: any) {
+  return field.length && field.find((e: any) => e['_key'] === lang).value || field;
+}
+
 export function mapWorkToLang(lang: string, work: any) {
   return {
     ...work,
-    title: work.title?.find((e: any) => e['_key'] === lang).value || work.title,
     slug: work.slug.current,
+    title: getFieldValueByLang(lang, work.title),
+    description: getFieldValueByLang(lang, work.description),
     img: urlForImage(work.imgUrl.asset),
   };
 }

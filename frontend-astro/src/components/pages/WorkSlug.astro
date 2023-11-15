@@ -5,6 +5,7 @@ import ContactCTA from '@/components/ContactCTA.astro';
 import Hero from '@/components/Hero.astro';
 import Icon from '@/components/Icon.astro';
 import Pill from '@/components/Pill.astro';
+
 import { getLangFromUrl, getWorksPatch } from '@/i18n/utils';
 import { mapWorkToLang } from '@/sanity/utils';
 
@@ -33,9 +34,9 @@ const entry = mapWorkToLang(lang, receivedEntry);
               <!-- <div class="tags">
 								{entry.tags.map((t) => <Pill>{t}</Pill>)}
 							</div> -->
-              <div class="tags">
+              <!-- <div class="tags">
                 {entry.categories.map((c: any) => <Pill>{c._type}</Pill>)}
-              </div>
+              </div> -->
               <p class="description">{entry.description}</p>
             </div>
           </Hero>

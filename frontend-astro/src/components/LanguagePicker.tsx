@@ -1,15 +1,17 @@
 import { Menu, Transition } from "@headlessui/react";
-import { getRedirect } from "@/i18n/utils";
+import { getRedirect, useTranslations } from "@/i18n/utils";
 import { LANGUAGES } from "@/i18n/ui";
 
 export const LanguagePicker = ({lang, currentPath}: any) => {
+  const t = useTranslations(lang);
+
   return (
     <nav>
       <ul className="hidden md:flex lg:flex lg:space-x-7 lg:ml-14">
         <li>
           <Menu>
             <Menu.Button className="text-white hover:text-almost-white inline-flex w-full justify-center gap-x-1.5 rounded-full bg-[color:var(--accent-regular)] border-fuchsia-900 px-3 py-1 text-sm font-semibold shadow-sm ring-gray-300 hover:border-almost-white">
-              Language
+              {t('language')}
               <svg
                 className="-mr-1 h-5 w-5 text-white"
                 viewBox="0 0 20 20"
@@ -65,17 +67,19 @@ const LanguagePickerMenuItem = ({
 
   return (
     <Menu.Item disabled={isSameLAng}>
-      {({ active }) => (
-        <a
-          className={`${
-            (active || isSameLAng) &&
-            'bg-gray-100 text-gray-900'
-          } block w-full text-left px-4 py-2 text-sm cursor-pointer`}
-          href={getRedirect(givenLanguage, currentLanguage, currentPath)}
-        >
-          {children}
-        </a>
-      )}
+      {({ active }) => {
+        return (
+          <a
+            className={`${
+              (active || isSameLAng) &&
+              'bg-gray-100 text-gray-300'
+            } block w-full text-left px-4 py-2 text-sm cursor-pointer text-gray-900 hover:text-fuchsia-900`}
+            href={getRedirect(givenLanguage, currentLanguage, currentPath)}
+          >
+            {children}
+          </a>
+        )
+      }}
     </Menu.Item>
   );
 };
