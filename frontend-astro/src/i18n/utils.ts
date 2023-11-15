@@ -33,12 +33,8 @@ export function getTranslatedRouteSection(
 export function getRedirect(newLang: string, lang: any, currentPath: any) {
   const [_, __, section, ...rest] = currentPath.split('/');
   const newLangToLower = newLang.toLowerCase();
-  const nextSectionToLower = getTranslatedRouteSection(
-    section,
-    lang,
-    newLang,
-  ).toLowerCase();
-  const restPath = rest;
+  const nextSectionToLower = getTranslatedRouteSection(section, lang, newLang).toLowerCase();
+  const restPath = rest[0];
   const newRoute = `/${newLangToLower}${nextSectionToLower && `/${nextSectionToLower}`}${restPath && `/${restPath}/`}`;
 
   return newRoute || `/${lang}/`;
