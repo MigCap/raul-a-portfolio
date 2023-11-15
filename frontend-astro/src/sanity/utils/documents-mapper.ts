@@ -49,5 +49,7 @@ export function mapHome(home: any, lang: string) {
     ...home,
     title: getFieldValueByLang(lang, home.title),
     description: getFieldValueByLang(lang, home.description),
+    long_description: getFieldValueByLang(lang, home.long_description),
+    img: urlForImage(home.imgUrl.asset),
   };
 }

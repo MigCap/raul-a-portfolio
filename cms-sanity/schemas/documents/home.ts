@@ -29,6 +29,12 @@ export default defineType({
       ...allLanguagesRequiredValidation,
     },
     {
+      name: 'long_description',
+      type: 'internationalizedArrayText',
+      fieldset: 'description',
+      ...allLanguagesRequiredValidation,
+    },
+    {
       name: 'imgUrl',
       type: 'image',
       options: {

@@ -1,6 +1,5 @@
 ---
 // import { getCollection } from 'astro:content';
-import { useSanityClient } from '@sanity/astro';
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -38,18 +37,19 @@ const home = await getHome(lang);
           tagline={home.description}
           align="start"
         >
-          <div class="roles">
+          <!-- <div class="roles">
             <Pill><Icon icon="code" size="1.33em" /> Designer</Pill>
             <Pill><Icon icon="microphone-stage" size="1.33em" /> Painter</Pill>
             <Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
-          </div>
+          </div> -->
         </Hero>
 
         <img
           alt={`${about.name} smiling in a black plaid shirt`}
           width="480"
           height="620"
-          src="/assets/profile-pic-sm.png"
+          src={home.img} alt={home.img_alt || ''}
+          loading="lazy"
         />
       </header>
 

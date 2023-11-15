@@ -11,7 +11,8 @@ export const LanguagePicker = ({lang, currentPath}: any) => {
         <li>
           <Menu>
             <Menu.Button className="text-white hover:text-almost-white inline-flex w-full justify-center gap-x-1.5 rounded-full bg-[color:var(--accent-regular)] border-fuchsia-900 px-3 py-1 text-sm font-semibold shadow-sm ring-gray-300 hover:border-almost-white">
-              {t('language')}
+              {/* {t('language')} */}
+              {lang.toUpperCase()}
               <svg
                 className="-mr-1 h-5 w-5 text-white"
                 viewBox="0 0 20 20"
@@ -32,7 +33,7 @@ export const LanguagePicker = ({lang, currentPath}: any) => {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Menu.Items className="absolute right-0 mt-4 w-40 py-3 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute right-0 mt-4 w-40 py-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <LanguagePickerMenuItem
                   givenLanguage={LANGUAGES.EN}
                   currentLanguage={lang}
@@ -63,17 +64,16 @@ const LanguagePickerMenuItem = ({
   currentPath: string;
   children: any
 }) => {
-  const isSameLAng = currentLanguage === givenLanguage;
+  const selectedLang = currentLanguage === givenLanguage;
 
   return (
-    <Menu.Item disabled={isSameLAng}>
+    <Menu.Item disabled={selectedLang}>
       {({ active }) => {
         return (
           <a
-            className={`${
-              (active || isSameLAng) &&
-              'bg-gray-100 text-gray-300'
-            } block w-full text-left px-4 py-2 text-sm cursor-pointer text-gray-900 hover:text-fuchsia-900`}
+            className={`${(selectedLang) && 'text-fuchsia-900 cursor-default'} 
+                        ${(!selectedLang) && 'text-gray-900 hover:bg-gray-100'}
+                        block w-full text-left px-4 py-2 text-sm cursor-pointer text-gray-900`}
             href={getRedirect(givenLanguage, currentLanguage, currentPath)}
           >
             {children}

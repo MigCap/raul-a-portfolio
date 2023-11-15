@@ -1,2 +1,2 @@
-export * from './documentsMapper';
+export * from './documents-mapper';
 export * from './urlForImage';
