@@ -62,7 +62,6 @@ const LanguagePickerMenuItem = ({
   children: any
 }) => {
   const isSameLAng = currentLanguage === givenLanguage;
-  console.log('🚀 ~ getRedirect(givenLanguage, currentLanguage, currentPath):', getRedirect(givenLanguage, currentLanguage, currentPath));
 
   return (
     <Menu.Item disabled={isSameLAng}>
