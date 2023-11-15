@@ -18,5 +18,5 @@ export default defineConfig({
       }
     )
   ],
-  output: 'hybrid'
+  // output: 'hybrid'
 });
