@@ -303,4 +303,4 @@ export const translations = {
     'work.title': 'Portfolio',
     'work.tagline': 'Echa un ojo a mis trabajos.',
   },
-} as const;
+};

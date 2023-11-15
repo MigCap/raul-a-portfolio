@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import {workPreview} from '../objects/workPreview'
+import {workPreview} from '../objects/previews'
 import { allLanguagesRequiredValidation } from '../objects/validation/allLanguagesValidation'
 
 export default defineType({

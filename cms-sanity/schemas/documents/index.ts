@@ -1,0 +1,13 @@
+export { default as about } from './about';
+export { default as author } from './author';
+export { default as blockContent } from './blockContent';
+export { default as brands } from './brands';
+export { default as category } from './category';
+export { default as contact } from './contact';
+export { default as experience } from './experience';
+export { default as home } from './home';
+export { default as post } from './post';
+export { default as skills } from './skills';
+export { default as testimonials } from './testimonials';
+export { default as work } from './work';
+export { default as workExperience } from './workExperience';

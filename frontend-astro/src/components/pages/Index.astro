@@ -18,17 +18,15 @@ import ContactCTA from '@/components/ContactCTA.astro';
 import Skills from '@/components/Skills.astro';
 
 // Utils
-import { getLangFromUrl, getWorksPatch, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, getWorksPatch } from '@/i18n/utils';
 import { about } from '@/i18n/ui';
-import { mapWorksForMainList, sortWorksByMostRecent } from '@/sanity/utils';
-import { getWorksQuery } from '@/sanity/queries';
+import { getHome, getMostRecentWorks } from '@/sanity/queries';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+// const t = useTranslations(lang);
 
-const fetchedWorks = await useSanityClient().fetch(getWorksQuery());
-const works = mapWorksForMainList(fetchedWorks, lang);
-const mostRecentWorks = sortWorksByMostRecent(works).slice(0, 4);
+const mostRecentWorks = await getMostRecentWorks(lang);
+const home = await getHome(lang);
 ---
 
 <BaseLayout>
@@ -36,8 +34,8 @@ const mostRecentWorks = sortWorksByMostRecent(works).slice(0, 4);
     <div class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">
         <Hero
-          title={`Hello, my name is ${about.name}`}
-          tagline="I am a Creative Designer who is currently based in Madrid, Spain."
+          title={home.title}
+          tagline={home.description}
           align="start"
         >
           <div class="roles">

@@ -1,23 +1,18 @@
-import { defineType } from "sanity"
+import {defineType} from 'sanity'
 
-export default defineType ({
-    name:'workExperience',
-    title:'Work Experience',
-    type:'document',
-    fields:[
-           {name:'name',
-               title:'name',
-               type:'string'
-            },
-            {
-                name:'company',
-                title:'Company',
-                type:'string'
-            },
-            {
-                name:'desc',
-                title:'Desc',
-                type:'string'
-            }
-    ]
+export default defineType({
+  name: 'workExperience',
+  title: 'Work Experience',
+  type: 'document',
+  fields: [
+    {name: 'title', type: 'string'},
+    {
+      name: 'company',
+      type: 'string',
+    },
+    {
+      name: 'desc',
+      type: 'string',
+    },
+  ],
 })
