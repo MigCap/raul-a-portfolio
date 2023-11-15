@@ -1,4 +1,5 @@
 ---
+import { about } from '../i18n/ui';
 import '../styles/global.css';
 
 interface Props {
@@ -7,8 +8,8 @@ interface Props {
 }
 
 const {
-	title = 'Jeanine White: Personal Site',
-	description = 'The personal site of Jeanine White',
+	title = `${about.name}: Personal Site`,
+	description = `The personal site of ${about.name}`,
 } = Astro.props;
 ---
 

@@ -1,0 +1,57 @@
+---
+import { useSanityClient } from '@sanity/astro';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import ContactCTA from '@/components/ContactCTA.astro';
+import PortfolioPreview from '@/components/PortfolioPreview.astro';
+import Hero from '@/components/Hero.astro';
+import Grid from '@/components/Grid.astro';
+
+import { about } from '@/i18n/ui';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { mapWorksForMainList } from '@/sanity/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const fetchedWorks = await useSanityClient().fetch(`*[_type == "works"]`);
+const works = mapWorksForMainList(fetchedWorks, lang);
+
+const fetchedCategories = await useSanityClient().fetch(
+  `*[_type == "categories"]`,
+);
+const categories = fetchedCategories.map((category: any) => {
+  return {
+    ...category,
+    id: category._id,
+  };
+});
+---
+
+<BaseLayout
+  title={`My Work | ${about.name}`}
+  description={`Learn about ${about.name}'s most recent projects`}
+>
+  <div class="stack gap-20">
+    <main class="wrapper stack gap-8">
+      <Hero title={t('work.title')} tagline={t('work.tagline')} align="start" />
+      <Grid variant="offset">
+        {
+          works.map((work: any) => (
+            <li>
+              <PortfolioPreview work={work} />
+            </li>
+          ))
+        }
+      </Grid>
+
+      <div>
+        <h4>{t('categories')}</h4>
+        {categories.map((category: any) => <p>{category.title}</p>)}
+      </div>
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>
+ @/sanity/utils/urlForImage

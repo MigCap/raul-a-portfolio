@@ -1,0 +1,185 @@
+---
+import { LANGUAGES, ROUTES_IDS } from '@/i18n/ui';
+import { getLangFromUrl } from '@/i18n/utils';
+
+const { url } = Astro;
+
+const currentLang = getLangFromUrl(url);
+
+function getTranslatedRouteSection(section: string, newLang: string) {
+  const routeEntry: any = Object.entries(ROUTES_IDS[currentLang]).find(
+    ([_, value]: any) => value.toLowerCase() === section,
+  );
+  return ROUTES_IDS[newLang.toLowerCase()][routeEntry?.[0]] || '';
+}
+
+function getRedirect(newLang: string) {
+  const [_, __, section, ...rest] = url.pathname.split('/');
+  const nextSection = getTranslatedRouteSection(section, newLang);
+  const newRoute = `/${newLang.toLowerCase()}/${nextSection.toLowerCase()}/${rest}`;
+
+  // return path.replace(
+  //   `/${currentLang as string}/`,
+  //   `/${newLang.toLowerCase()}/`,
+  // );
+  return newRoute || `/${currentLang}/`;
+}
+
+function getMenuItemClass(lang: string) {
+  const baseClass = 'block px-4 py-2 text-sm';
+  return `${
+    lang.toLowerCase() === currentLang
+      ? 'bg-gray-100 text-gray-900'
+      : 'text-gray-700'
+  } ${baseClass}`;
+}
+---
+
+<!-- transition:persist -->
+<div class="relative inline-block text-left" transition:persist>
+  <div>
+    <button
+      type="button"
+      class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+      id="language-picker-button"
+      aria-expanded="true"
+      aria-haspopup="true"
+    >
+      Language
+      <svg
+        class="-mr-1 h-5 w-5 text-gray-400"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </button>
+  </div>
+  <div
+    class="absolute transition ease-in duration-75 opacity-0 right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+    id="language-picker-menu"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="language-picker-button"
+    tabindex="-1"
+  >
+    <div class="py-1" role="none">
+      <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+      {
+        Object.entries(LANGUAGES).map(([lang, label], index) => (
+          <a
+            href={`${getRedirect(lang)}`}
+            class="block px-4 py-2 text-sm text-gray-700"
+            role="menuitem"
+            tabindex={`${index}`}
+            id={`menu-item-${index}`}
+          >
+            {label}
+          </a>
+        ))
+      }
+      <!-- <a
+        href="#"
+        class="text-gray-700 block px-4 py-2 text-sm"
+        role="menuitem"
+        tabindex="-1"
+        id="menu-item-0">Account settings</a
+      > -->
+    </div>
+  </div>
+</div>
+
+<!-- <div>
+  <ul>
+    {
+      Object.entries(LANGUAGES).map(([lang, label]) => (
+        <li class="language-picker">
+          <a href={`${getRedirect(lang)}`}>{label}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div> -->
+
+<script>
+  let languagePickerBtn = document.getElementById(
+    'language-picker-button',
+  ) as HTMLElement;
+  let languagePickerMenu = document.getElementById(
+    'language-picker-menu',
+  ) as HTMLElement;
+
+  // Dropdown menu, show/hide based on menu state.
+  // Entering: "transition ease-out duration-100"
+  //   From: "transform opacity-0 scale-95"
+  //   To: "transform opacity-100 scale-100"
+  // Leaving: "transition ease-in duration-75"
+  //   From: "transform opacity-100 scale-100"
+  //   To: "transform opacity-0 scale-95"
+
+  function toggleDropdownMenuClasses() {
+    const enteringClasses = [
+      'ease-out',
+      'duration-100',
+      'opacity-100',
+      'scale-100',
+    ];
+    const leavingClasses = ['ease-in', 'duration-75', 'opcaity-0', 'scale-95'];
+
+    if (isMenuOpen()) {
+      languagePickerMenu.classList.add(...leavingClasses);
+      languagePickerMenu.classList.remove(...enteringClasses);
+    } else {
+      languagePickerMenu.classList.add(...enteringClasses);
+      languagePickerMenu.classList.remove(...leavingClasses);
+    }
+  }
+
+  function isMenuOpen() {
+    return languagePickerMenu.classList.contains('opacity-100');
+  }
+
+  languagePickerBtn.addEventListener('click', () => {
+    toggleDropdownMenuClasses();
+  });
+
+  // Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700"
+  const menuOption1 = document.getElementById('menu-item-0') as HTMLElement;
+  const menuOption2 = document.getElementById('menu-item-1') as HTMLElement;
+
+  function getCurrentMenuItemSelected(index: any) {
+    return index === 0 ? menuOption1 : menuOption2;
+  }
+
+  function isMenuItemSelected(element: any) {
+    return element.classList.contains('bg-gray-100');
+  }
+
+  const menuItemActiveClasses = ['bg-gray-100', 'text-gray-900'];
+  const menuItemInactivectiveClasses = ['text-gray-700'];
+
+  function applyMenuItemClasses(index: any) {
+    const currentMenuElement = getCurrentMenuItemSelected(index);
+    if (isMenuItemSelected(currentMenuElement)) {
+      currentMenuElement.classList.add(...menuItemInactivectiveClasses);
+      currentMenuElement.classList.remove(...menuItemActiveClasses);
+    } else {
+      currentMenuElement.classList.add(...menuItemInactivectiveClasses);
+      currentMenuElement.classList.remove(...menuItemActiveClasses);
+    }
+  }
+
+  menuOption1.addEventListener('click', () => {
+    applyMenuItemClasses(0);
+  });
+  menuOption2.addEventListener('click', () => {
+    applyMenuItemClasses(1);
+  });
+
+  // window.addEventListener('DOMContentLoaded', () => applyMenuItemClasses(0));
+  // document.addEventListener('astro:after-swap', () => applyMenuItemClasses(0));
+</script>

@@ -1,3 +1,19 @@
 {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/pages": ["src/pages/*"],
+      "@/components": ["src/components/*"],
+      "@/layouts": ["src/layouts/*"],
+      "@/icons": ["src/components/icons/*"],
+      "@/assets": ["public/assets/*"],
+      "@/i18n": ["src/i18n/*"],
+      "@/sanity": ["src/sanity/*"],
+      "@/lib": ["src/lib/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  },
   "extends": "astro/tsconfigs/strict"
 }

@@ -1,0 +1,28 @@
+---
+import WorkSlugComponent from '@/components/pages/WorkSlug.astro';
+import { useSanityClient } from '@sanity/astro';
+
+interface Props {
+  entry: any;
+  // entry: CollectionEntry<"work">;
+}
+
+export async function getStaticPaths() {
+  const works = await useSanityClient().fetch(`*[_type == "works"]`);
+
+  return works.map((work: any) => {
+    return {
+      params: { slug: work.slug.current },
+      props: {
+        entry: {
+          ...work,
+        },
+      },
+    };
+  });
+}
+
+const { entry } = Astro.props;
+---
+
+<WorkSlugComponent entry={entry} />

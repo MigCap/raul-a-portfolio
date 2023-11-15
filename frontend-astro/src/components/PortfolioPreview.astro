@@ -1,16 +1,21 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+// import type { CollectionEntry } from 'astro:content';
+import { getLangFromUrl, getWorksPatch, mapWorkToLang } from '@/i18n/utils';
 
 interface Props {
-	project: CollectionEntry<'work'>;
+	// project: CollectionEntry<'work'>;
+	work: any;
 }
 
-const { data, slug } = Astro.props.project;
+const { work } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const worksPath = getWorksPatch(lang);
 ---
 
-<a class="card" href={`/work/${slug}`}>
-	<span class="title">{data.title}</span>
-	<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
+<a class="card" href={`${worksPath}${work.slug}`}>
+	<span class="title">{`${work.title} - ${work.description}`}</span>
+	<img src={work.img} alt={work.img_alt || ''} loading="lazy" decoding="async" />
 </a>
 
 <style>
