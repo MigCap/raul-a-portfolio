@@ -1,9 +1,7 @@
-import {
-  IconLinkedin,
-  IconInstagram,
-  Filigrana,
-  Filigrana2,
-} from '../components/icons';
+// import Filigrana from '@/components/icons/Filigrana.astro';
+// import Filigrana2 from '@/components/icons/Filigrana2.astro';
+// import IconInstagram from '@/components/icons/IconInstagram.astro';
+// import IconLinkedin from '@/components/icons/IconLinkedin.astro';
 
 export const LANGUAGES = {
   EN: 'en',
@@ -24,44 +22,44 @@ export const DeviceSize = {
 };
 export const headerHeight = 100;
 
-export const socialLinks: any = {
-  linkedin: {
-    name: 'Linkedin',
-    url: 'https://www.linkedin.com/in/rauldediegovazquez/',
-    // icon: "pi pi-linkedin",
-    Icon: IconLinkedin,
-    show: true,
-  },
-  github: {
-    name: 'Github',
-    url: '',
-    icon: 'pi pi-github',
-    show: false,
-  },
-  twitter: {
-    name: 'Twitter',
-    url: '',
-    icon: 'pi pi-twitter',
-    show: false,
-  },
-  instagram: {
-    name: 'Instagram',
-    url: 'https://www.linkedin.com/in/rauldediegovazquez/',
-    // icon: "pi pi-instagram",
-    Icon: IconInstagram,
-    show: true,
-  },
-};
+// export const socialLinks: any = {
+//   linkedin: {
+//     name: 'Linkedin',
+//     url: 'https://www.linkedin.com/in/rauldediegovazquez/',
+//     // icon: "pi pi-linkedin",
+//     Icon: IconLinkedin,
+//     show: true,
+//   },
+//   github: {
+//     name: 'Github',
+//     url: '',
+//     icon: 'pi pi-github',
+//     show: false,
+//   },
+//   twitter: {
+//     name: 'Twitter',
+//     url: '',
+//     icon: 'pi pi-twitter',
+//     show: false,
+//   },
+//   instagram: {
+//     name: 'Instagram',
+//     url: 'https://www.linkedin.com/in/rauldediegovazquez/',
+//     // icon: "pi pi-instagram",
+//     Icon: IconInstagram,
+//     show: true,
+//   },
+// };
 
-export const socialMedia = [
-  socialLinks.linkedin,
-  socialLinks.instagram,
-  {
-    name: 'Mail',
-    url: '/contact',
-    icon: 'pi pi-envelope',
-  },
-];
+// export const socialMedia = [
+//   socialLinks.linkedin,
+//   socialLinks.instagram,
+//   {
+//     name: 'Mail',
+//     url: '/contact',
+//     icon: 'pi pi-envelope',
+//   },
+// ];
 
 export const about = {
   name: 'Raúl de Diego',
@@ -76,122 +74,122 @@ export const about = {
   hobbies: ['Fútbol', 'Ciclismo', 'Cine', 'Música'],
 };
 
-export const categoriesConfig: any = [
-  //
-  // GRAPHIC DESIGN
-  //
-  {
-    id: 56,
-    name: {
-      [LANGUAGES.EN]: 'Graphic Design',
-      [LANGUAGES.ES]: 'Diseño Grafico',
-    },
-    Icon: Filigrana,
-    main: true,
-  },
-  {
-    id: 62,
-    name: {
-      [LANGUAGES.EN]: 'Branding',
-      [LANGUAGES.ES]: 'Branding',
-    },
-  },
-  {
-    id: 65,
-    name: {
-      [LANGUAGES.EN]: 'Communication',
-      [LANGUAGES.ES]: 'Comunicación',
-    },
-  },
-  {
-    id: 58,
-    name: {
-      [LANGUAGES.EN]: 'Editorial Design',
-      [LANGUAGES.ES]: 'Diseñó Editorial',
-    },
-  },
-  {
-    id: 71,
-    name: {
-      [LANGUAGES.EN]: 'Events',
-      [LANGUAGES.ES]: 'Eventos',
-    },
-  },
-  {
-    id: 63,
-    name: {
-      [LANGUAGES.EN]: 'Final Atwork',
-      [LANGUAGES.ES]: 'Arte Final',
-    },
-  },
-  {
-    id: 70,
-    name: {
-      [LANGUAGES.EN]: 'Gigantrophy',
-      [LANGUAGES.ES]: 'Gigantrophy',
-    },
-  },
-  {
-    id: 67,
-    name: {
-      [LANGUAGES.EN]: 'Layout',
-      [LANGUAGES.ES]: 'Layout',
-    },
-  },
-  {
-    id: 66,
-    name: {
-      [LANGUAGES.EN]: 'Marketing',
-      [LANGUAGES.ES]: 'Marketing',
-    },
-  },
-  {
-    id: 61,
-    name: {
-      [LANGUAGES.EN]: 'Packaging',
-      [LANGUAGES.ES]: 'Packaging',
-    },
-  },
+// export const categoriesConfig: any = [
+//   //
+//   // GRAPHIC DESIGN
+//   //
+//   {
+//     id: 56,
+//     name: {
+//       [LANGUAGES.EN]: 'Graphic Design',
+//       [LANGUAGES.ES]: 'Diseño Grafico',
+//     },
+//     Icon: Filigrana,
+//     main: true,
+//   },
+//   {
+//     id: 62,
+//     name: {
+//       [LANGUAGES.EN]: 'Branding',
+//       [LANGUAGES.ES]: 'Branding',
+//     },
+//   },
+//   {
+//     id: 65,
+//     name: {
+//       [LANGUAGES.EN]: 'Communication',
+//       [LANGUAGES.ES]: 'Comunicación',
+//     },
+//   },
+//   {
+//     id: 58,
+//     name: {
+//       [LANGUAGES.EN]: 'Editorial Design',
+//       [LANGUAGES.ES]: 'Diseñó Editorial',
+//     },
+//   },
+//   {
+//     id: 71,
+//     name: {
+//       [LANGUAGES.EN]: 'Events',
+//       [LANGUAGES.ES]: 'Eventos',
+//     },
+//   },
+//   {
+//     id: 63,
+//     name: {
+//       [LANGUAGES.EN]: 'Final Atwork',
+//       [LANGUAGES.ES]: 'Arte Final',
+//     },
+//   },
+//   {
+//     id: 70,
+//     name: {
+//       [LANGUAGES.EN]: 'Gigantrophy',
+//       [LANGUAGES.ES]: 'Gigantrophy',
+//     },
+//   },
+//   {
+//     id: 67,
+//     name: {
+//       [LANGUAGES.EN]: 'Layout',
+//       [LANGUAGES.ES]: 'Layout',
+//     },
+//   },
+//   {
+//     id: 66,
+//     name: {
+//       [LANGUAGES.EN]: 'Marketing',
+//       [LANGUAGES.ES]: 'Marketing',
+//     },
+//   },
+//   {
+//     id: 61,
+//     name: {
+//       [LANGUAGES.EN]: 'Packaging',
+//       [LANGUAGES.ES]: 'Packaging',
+//     },
+//   },
 
-  //
-  // ILLUSTRATION
-  //
-  {
-    id: 57,
-    name: { [LANGUAGES.EN]: 'Illustration', [LANGUAGES.ES]: 'Ilustración' },
-    Icon: Filigrana2,
-    main: true,
-  },
-  {
-    id: 69,
-    name: {
-      [LANGUAGES.EN]: 'Digital Art',
-      [LANGUAGES.ES]: 'Arte Digital',
-    },
-  },
-  {
-    id: 60,
-    name: {
-      [LANGUAGES.EN]: 'Editorial Illustration',
-      [LANGUAGES.ES]: 'Ilustración Editorial',
-    },
-  },
-  {
-    id: 68,
-    name: {
-      [LANGUAGES.EN]: 'Fantasy Art',
-      [LANGUAGES.ES]: 'Fantasy Art',
-    },
-  },
-  {
-    id: 59,
-    name: { [LANGUAGES.EN]: 'Matte Painting', [LANGUAGES.ES]: 'Pintura mate' },
-  },
-];
+//   //
+//   // ILLUSTRATION
+//   //
+//   {
+//     id: 57,
+//     name: { [LANGUAGES.EN]: 'Illustration', [LANGUAGES.ES]: 'Ilustración' },
+//     Icon: Filigrana2,
+//     main: true,
+//   },
+//   {
+//     id: 69,
+//     name: {
+//       [LANGUAGES.EN]: 'Digital Art',
+//       [LANGUAGES.ES]: 'Arte Digital',
+//     },
+//   },
+//   {
+//     id: 60,
+//     name: {
+//       [LANGUAGES.EN]: 'Editorial Illustration',
+//       [LANGUAGES.ES]: 'Ilustración Editorial',
+//     },
+//   },
+//   {
+//     id: 68,
+//     name: {
+//       [LANGUAGES.EN]: 'Fantasy Art',
+//       [LANGUAGES.ES]: 'Fantasy Art',
+//     },
+//   },
+//   {
+//     id: 59,
+//     name: { [LANGUAGES.EN]: 'Matte Painting', [LANGUAGES.ES]: 'Pintura mate' },
+//   },
+// ];
 
-export const mainCategoriesIds = categoriesConfig
-  .filter((category: any) => category?.main)
-  ?.map((category: any) => category?.id);
+// export const mainCategoriesIds = categoriesConfig
+//   .filter((category: any) => category?.main)
+//   ?.map((category: any) => category?.id);
 
 export const ROUTES_IDS: any = {
   [LANGUAGES.EN]: {
