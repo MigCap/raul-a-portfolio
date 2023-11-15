@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {workPreview} from '../objects/workPreview'
+import { allLanguagesRequiredValidation } from '../objects/validation/allLanguagesValidation'
 
 export default defineType({
   name: 'works',
@@ -17,6 +18,7 @@ export default defineType({
       name: 'title',
       type: 'internationalizedArrayString',
       fieldset: 'title',
+      ...allLanguagesRequiredValidation,
     }),
     defineField({
       name: 'slug',
@@ -36,8 +38,9 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'string',
-      fieldset: 'content',
+      type: 'internationalizedArrayString',
+      fieldset: 'description',
+      ...allLanguagesRequiredValidation,
     }),
     defineField({
       name: 'projectLink',
@@ -83,6 +86,14 @@ export default defineType({
   fieldsets: [
     {
       name: 'title',
+      options: {
+        collapsible: true,
+        collapsed: true,
+        modal: {type: 'popover'},
+      },
+    },
+    {
+      name: 'description',
       options: {
         collapsible: true,
         collapsed: true,
