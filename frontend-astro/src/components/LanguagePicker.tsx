@@ -7,7 +7,7 @@ export const LanguagePicker = ({lang, currentPath}: any) => {
 
   return (
     <nav>
-      <ul className="hidden md:flex lg:flex lg:space-x-7 lg:ml-14">
+      <ul className="flex md:flex lg:flex lg:space-x-7 lg:ml-14">
         <li>
           <Menu>
             <Menu.Button className="text-white hover:text-almost-white inline-flex w-full justify-center gap-x-1.5 rounded-full bg-[color:var(--accent-regular)] border-fuchsia-900 px-3 py-1 text-sm font-semibold shadow-sm ring-gray-300 hover:border-almost-white">

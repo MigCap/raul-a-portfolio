@@ -36,8 +36,8 @@ export function getRedirect(newLang: string, lang: any, currentPath: any) {
   const newLangToLower = newLang.toLowerCase();
   const nextSectionToLower = getTranslatedRouteSection(section, lang, newLang).toLowerCase();
   const restPath = rest.length <= 0 ? '' : rest[0];
-  
-  const newRoute = `/${newLangToLower}${nextSectionToLower && `/${nextSectionToLower}`}${restPath && `/${restPath}/`}`;
+
+  const newRoute = `/${newLangToLower}/${nextSectionToLower && nextSectionToLower}${restPath && `/${restPath}/`}`;
 
   const res = newRoute || `/${lang}/`; 
 
