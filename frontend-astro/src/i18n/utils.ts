@@ -5,7 +5,6 @@ import {
   LANGUAGES,
   type TLanguages,
 } from '@/i18n/ui';
-import { urlForImage } from '@/sanity/utils';
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
@@ -24,10 +23,11 @@ export function getTranslatedRouteSection(
   lang: any,
   newLang: string,
 ) {
-  const routeEntry: any = Object.entries(ROUTES_IDS[lang]).find(
-    ([_, value]: any) => value.toLowerCase() === section,
-  );
-  return ROUTES_IDS[newLang.toLowerCase()][routeEntry?.[0]] || '';
+  const routeIdsEntries = Object.entries(ROUTES_IDS[lang]);
+  const routeEntry: any = routeIdsEntries.find(([_, value]: any) => value.toLowerCase() === section);
+  const newLangToLower = newLang.toLowerCase();
+
+  return ROUTES_IDS[newLangToLower][routeEntry?.[0]] || '';
 }
 
 export function getRedirect(newLang: string, lang: any, currentPath: any) {
@@ -37,7 +37,9 @@ export function getRedirect(newLang: string, lang: any, currentPath: any) {
   const restPath = rest[0];
   const newRoute = `/${newLangToLower}${nextSectionToLower && `/${nextSectionToLower}`}${restPath && `/${restPath}/`}`;
 
-  return newRoute || `/${lang}/`;
+  const res = newRoute || `/${lang}/`; 
+
+  return res;
 }
 
 export function isActiveRoute(href: string, url: any, lang: any) {
