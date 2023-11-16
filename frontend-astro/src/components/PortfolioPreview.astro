@@ -8,12 +8,13 @@ interface Props {
 }
 
 const { work } = Astro.props;
+console.log('🚀 ~ work:', work);
 
 const lang = getLangFromUrl(Astro.url);
 const worksPath = getWorksPatch(lang);
 ---
 
-<a class="card" href={`${worksPath}${work.slug}`}>
+<a class="card" href={`${worksPath}${work.slug}`} transition:name=`work ${work._id} box`>
 	<span class="title">{`${work.title} - ${work.description}`}</span>
 	<img src={work.img} alt={work.img_alt || ''} loading="lazy" decoding="async" />
 </a>

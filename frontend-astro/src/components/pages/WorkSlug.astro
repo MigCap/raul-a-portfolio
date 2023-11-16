@@ -44,7 +44,10 @@ const entry = mapWorkToLang(lang, receivedEntry);
       </header>
       <main class="wrapper">
         <div class="stack gap-10 content">
-          {entry.img && <img src={entry.img} alt={entry.img_alt || ''} />}
+          {entry.img && (
+            <img src={entry.img} alt={entry.img_alt || ''} transition:name=`work ${entry._id} box` />
+            )
+          }
           <div class="content">
             <!-- <Content /> -->
           </div>
