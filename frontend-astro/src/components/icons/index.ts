@@ -1,2 +1,2 @@
-export { default as FiligranaRombo } from './FiligranaRombo';
-export { default as FiligranaRombo2 } from './FiligranaRombo2';
+export { default as FiligranaRombo } from './FiligranaRombo.astro';
+export { default as FiligranaRombo2 } from './FiligranaRombo2.astro';

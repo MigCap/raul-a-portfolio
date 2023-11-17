@@ -3,7 +3,9 @@
 // import IconInstagram from '@/components/icons/IconInstagram.astro';
 // import IconLinkedin from '@/components/icons/IconLinkedin.astro';
 
-export const LANGUAGES = {
+import { iconPaths } from '@/components/icons/IconPaths';
+
+export const LANGUAGES: Record<string, TLanguages> = {
   EN: 'en',
   ES: 'es',
 };
@@ -21,6 +23,11 @@ export const DeviceSize = {
   desktop: 2024,
 };
 export const headerHeight = 100;
+
+export const socialIconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
+	{ label: 'Instagram', href: 'https://www.linkedin.com/in/rauldediegovazquez/', icon: 'instagram-logo' },
+	{ label: 'Linkedin', href: 'https://www.linkedin.com/in/rauldediegovazquez/', icon: 'linkedin-logo' },
+];
 
 // export const socialLinks: any = {
 //   linkedin: {
@@ -191,7 +198,20 @@ export const about = {
 //   .filter((category: any) => category?.main)
 //   ?.map((category: any) => category?.id);
 
-export const ROUTES_IDS: any = {
+export type RouteTranslationsType = {
+  HOME: string;
+  ABOUT: string;
+  CONTACT: string;
+  WORK: string;
+  PORTFOLIO: string;
+  BLOG: string;
+  PRIVACY_POLICY: string;
+  [key: string]: string;
+};
+
+export type RoutesIdsType = Record<string, RouteTranslationsType>;
+
+export const ROUTES_IDS: RoutesIdsType = {
   [LANGUAGES.EN]: {
     HOME: 'Home',
     ABOUT: 'About',
@@ -209,33 +229,33 @@ export const ROUTES_IDS: any = {
     PORTFOLIO: 'portfolio_categories',
     BLOG: 'blog',
     PRIVACY_POLICY: 'privacy-policy',
-  },
+  }
 };
 
-const routesTranslations = {
-  [LANGUAGES.EN]: Object.keys(ROUTES_IDS[LANGUAGES.EN]).reduce(
-    (acc, routeKey) => {
-      return {
-        ...acc,
-        [`route.${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.EN][routeKey],
-      };
-    },
-    {},
-  ),
-  [LANGUAGES.ES]: Object.keys(ROUTES_IDS[LANGUAGES.ES]).reduce(
-    (acc, routeKey) => {
-      return {
-        ...acc,
-        [`route.${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.ES][routeKey],
-      };
-    },
-    {},
-  ),
-};
+// export const routesTranslations = {
+//   [LANGUAGES.EN]: Object.keys(ROUTES_IDS[LANGUAGES.EN]).reduce(
+//     (acc, routeKey) => {
+//       return {
+//         ...acc,
+//         [`route.${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.EN][routeKey],
+//       };
+//     },
+//     {},
+//   ),
+//   [LANGUAGES.ES]: Object.keys(ROUTES_IDS[LANGUAGES.ES]).reduce(
+//     (acc, routeKey) => {
+//       return {
+//         ...acc,
+//         [`route.${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.ES][routeKey],
+//       };
+//     },
+//     {},
+//   ),
+// };
 
 export const translations = {
   [LANGUAGES.EN]: {
-    ...routesTranslations[LANGUAGES.EN],
+    // ...routesTranslations[LANGUAGES.EN],
     about: 'About',
     'about.title': 'Welcome to my work!',
     'about.tagline':
@@ -269,7 +289,7 @@ export const translations = {
       'See my most recent projects below to get an idea of my past experience.',
   },
   [LANGUAGES.ES]: {
-    ...routesTranslations[LANGUAGES.ES],
+    // ...routesTranslations[LANGUAGES.ES],
     about: 'Sobre mi',
     'about.title': 'Bienvenido a mi trabajo',
     'about.tagline':

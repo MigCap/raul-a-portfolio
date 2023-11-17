@@ -37,28 +37,39 @@ export function getRedirect(newLang: string, lang: any, currentPath: any) {
   const nextSectionToLower = getTranslatedRouteSection(section, lang, newLang).toLowerCase();
   const restPath = rest.length <= 0 ? '' : rest[0];
 
-  const newRoute = `/${newLangToLower}/${nextSectionToLower && nextSectionToLower}${restPath && `/${restPath}`}/`;
+  const nl = newLangToLower ? '/' + newLangToLower : '';
+  const ns = nextSectionToLower ? '/' + nextSectionToLower : '';
+  const rp = restPath ? '/' + restPath : '';
+  
+  const newRoute = `${nl}${ns}${rp}`;
 
-  const res = newRoute || `/${lang}/`; 
+  return newRoute ? newRoute + '/' : '' || `/${lang}/`;
+}
 
-  return res;
+export function getNavMenuLinksTranslated(lang: string) {
+  const home = ROUTES_IDS[lang].HOME;
+  const work = ROUTES_IDS[lang].WORK;
+  const about = ROUTES_IDS[lang].ABOUT;
+
+  const links: { label: string; href: string }[] = [
+    { label: home, href: `/${lang}/` },
+    { label: work, href: `/${lang}/${work.toLowerCase()}/` },
+    { label: about, href: `/${lang}/${about.toLowerCase()}/` },
+  ];
+
+  return links;
 }
 
 export function isActiveRoute(href: string, url: any, lang: any) {
-  return (
-    url.pathname === href ||
-    (href !== `/${lang}/` && url.pathname.startsWith(href))
-  );
+  return (url.pathname === href || (href !== `/${lang}/` && url.pathname.startsWith(href)));
 }
 
 export function getWorksPatch(currentLang: string) {
-  const worksPath = (
+  const worksPathToLower = (
     currentLang === LANGUAGES.EN
       ? ROUTES_IDS[LANGUAGES.EN].WORK
       : ROUTES_IDS[LANGUAGES.ES].WORK
   ).toLowerCase();
 
-  return `/${currentLang}/${worksPath}/`;
+  return `/${currentLang}/${worksPathToLower}/`;
 }
-
-

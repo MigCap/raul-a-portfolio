@@ -71,7 +71,7 @@ const LanguagePickerMenuItem = ({
       {({ active }) => {
         return (
           <a
-            className={`${selectedLang ? 'text-fuchsia-900 cursor-default' : ''} ${!selectedLang ? 'text-gray-900 hover:bg-gray-100 cursor-pointer' : ''} block w-full text-left px-4 py-2 text-sm`}
+            className={`${selectedLang ? 'text-fuchsia-900 cursor-default' : ''} ${!selectedLang ? 'text-gray-900 hover:text-fuchsia-900 hover:bg-fuchsia-100 cursor-pointer' : ''} block w-full text-left px-4 py-2 text-sm`}
             href={getRedirect(givenLanguage, currentLanguage, currentPath)}
           >
             {children}

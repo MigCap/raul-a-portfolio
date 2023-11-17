@@ -8,7 +8,6 @@ interface Props {
 }
 
 const { work } = Astro.props;
-console.log('🚀 ~ work:', work);
 
 const lang = getLangFromUrl(Astro.url);
 const worksPath = getWorksPatch(lang);
