@@ -3,18 +3,18 @@ import {
   DEFAULT_LANG,
   ROUTES_IDS,
   LANGUAGES,
-  type TLanguages,
+  type Languages,
   type TranslationKey,
 } from '@/i18n/ui';
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
-  if (lang in translations) return lang as TLanguages;
+  if (lang in translations) return lang as Languages;
   return DEFAULT_LANG;
 }
 
 
-export function useTranslations(lang: keyof typeof translations) {
+export function useTranslations(lang: Languages) {
   return function t(key: TranslationKey) {
     return translations[lang][key] || translations[DEFAULT_LANG][key];
   };

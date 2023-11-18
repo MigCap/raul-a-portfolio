@@ -1,6 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import { getLangFromUrl, getRedirect } from "@/i18n/utils";
-import { LANGUAGES, type TLanguages } from "@/i18n/ui";
+import { LANGUAGES, type Languages } from "@/i18n/ui";
 import { usePortfolioStore } from "@/store/global.store";
 
 interface Props {
@@ -61,7 +61,7 @@ const LanguagePickerMenuItem = ({
   url,
   children
 }: {
-  givenLanguage: TLanguages;
+  givenLanguage: Languages;
   url: URL;
   children: any
 }) => {

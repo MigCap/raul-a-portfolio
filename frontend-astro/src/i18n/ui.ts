@@ -5,12 +5,12 @@
 
 import { iconPaths } from '@/components/icons/IconPaths';
 
-export const LANGUAGES: Record<string, TLanguages> = {
+export const LANGUAGES: Record<string, Languages> = {
   EN: 'en',
   ES: 'es',
 };
 
-export type TLanguages = 'en' | 'es'
+export type Languages = 'en' | 'es'
 
 export const DEFAULT_LANG = LANGUAGES.EN;
 
