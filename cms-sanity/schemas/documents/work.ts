@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
-import {workPreview} from '../objects/previews'
-import { allLanguagesRequiredValidation } from '../objects/validation/allLanguagesValidation'
+import {workPreview} from '../objects/preview/previews'
+import { requiredAllLanguagesValidation, requiredImgValidation } from '../objects/validation'
 
 export default defineType({
   name: 'works',
@@ -18,7 +18,7 @@ export default defineType({
       name: 'title',
       type: 'internationalizedArrayString',
       fieldset: 'title',
-      ...allLanguagesRequiredValidation,
+      ...requiredAllLanguagesValidation,
     }),
     defineField({
       name: 'slug',
@@ -40,7 +40,7 @@ export default defineType({
       title: 'Description',
       type: 'internationalizedArrayString',
       fieldset: 'description',
-      ...allLanguagesRequiredValidation,
+      ...requiredAllLanguagesValidation,
     }),
     defineField({
       name: 'projectLink',
@@ -68,6 +68,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      ...requiredImgValidation,
     }),
     // {
     //   name: 'tags',

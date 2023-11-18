@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import { allLanguagesRequiredValidation } from '../objects/validation/allLanguagesValidation'
+import { requiredAllLanguagesValidation } from '../objects/validation'
 
 export default defineType({
   name: 'categories',
@@ -20,7 +20,7 @@ export default defineType({
     defineField({
       name: 'title',
       type: 'internationalizedArrayString',
-      ...allLanguagesRequiredValidation,
+      ...requiredAllLanguagesValidation,
     }),
     // defineField({
     //   name: 'description',

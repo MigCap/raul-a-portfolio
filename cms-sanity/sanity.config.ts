@@ -2,7 +2,7 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes, myStructure} from './schemas'
-import {baseLanguage, supportedLanguages} from './schemas/objects/localeStringType'
+import {baseLanguage, supportedLanguages} from './schemas/objects/locale/localeStringType'
 import { internationalizedArray } from 'sanity-plugin-internationalized-array'
 // import {documentInternationalization} from '@sanity/document-internationalization'
 

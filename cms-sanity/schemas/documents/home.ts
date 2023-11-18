@@ -1,5 +1,7 @@
 import {defineType} from 'sanity'
-import {allLanguagesRequiredValidation} from '../objects/validation/allLanguagesValidation'
+import {requiredAllLanguagesValidation, requiredImgValidation} from '../objects/validation'
+
+export const HOME_PAGE_TITLE = 'Home Page';
 
 export default defineType({
   name: 'home',
@@ -11,7 +13,7 @@ export default defineType({
     },
     prepare: (_: any) => {
       return {
-        title: 'Home Page'
+        title: HOME_PAGE_TITLE
       }
     },
   },
@@ -20,19 +22,19 @@ export default defineType({
       name: 'title',
       type: 'internationalizedArrayString',
       fieldset: 'title',
-      ...allLanguagesRequiredValidation,
+      ...requiredAllLanguagesValidation,
     },
     {
       name: 'description',
       type: 'internationalizedArrayString',
       fieldset: 'description',
-      ...allLanguagesRequiredValidation,
+      ...requiredAllLanguagesValidation,
     },
     {
       name: 'long_description',
       type: 'internationalizedArrayText',
       fieldset: 'description',
-      ...allLanguagesRequiredValidation,
+      ...requiredAllLanguagesValidation,
     },
     {
       name: 'imgUrl',
@@ -40,6 +42,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      ...requiredImgValidation,
     },
   ],
   fieldsets: [
