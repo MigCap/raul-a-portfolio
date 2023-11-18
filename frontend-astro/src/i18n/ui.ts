@@ -284,6 +284,7 @@ export const translations = {
     whatCanIDoForYou: 'What can I do for you?',
     whatTheySayAboutMe: 'What they say about me',
     whoIAm: 'Who I am?',
+    work: 'Work',
     'work.title': 'My Work',
     'work.tagline':
       'See my most recent projects below to get an idea of my past experience.',
@@ -318,6 +319,7 @@ export const translations = {
     whatCanIDoForYou: 'Qué puedo hacer por ti?',
     whatTheySayAboutMe: 'Qué dicen sobre mi',
     whoIAm: '¿Quién soy?',
+    work: 'Portfolio',
     'work.title': 'Portfolio',
     'work.tagline': 'Echa un ojo a mis trabajos.',
   },

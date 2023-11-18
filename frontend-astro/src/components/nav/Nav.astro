@@ -1,22 +1,17 @@
 ---
 import Icon from '@/components/icons/Icon.astro';
-import { LanguagePicker } from '@/components/LanguagePicker.tsx';
+import LanguagePicker from '@/components/LanguagePicker.tsx';
 // import LanguagePickerAstro from '@/components/LanguagePicker.astro';
 import ThemeToggle from '@/components/ThemeToggle.astro';
-import {
-  getLangFromUrl,
-  isActiveRoute,
-  getNavMenuLinksTranslated,
-} from '@/i18n/utils';
-import { about, socialIconLinks } from '@/i18n/ui';
 import MenuButton from './MenuButton.astro';
+import { about, socialIconLinks } from '@/i18n/ui';
+import { isActiveRoute, getNavMenuLinksTranslated, } from '@/i18n/utils';
 
 const { url } = Astro;
 
-const lang = getLangFromUrl(Astro.url);
-
 /** Main menu items */
-const textLinks = getNavMenuLinksTranslated(lang);
+const textLinks = getNavMenuLinksTranslated(url);
+
 ---
 
 <nav>
@@ -42,7 +37,7 @@ const textLinks = getNavMenuLinksTranslated(lang);
               class:list={[
                 'link',
                 {
-                  active: isActiveRoute(href, url, lang),
+                  active: isActiveRoute(href, url),
                 },
               ]}
               href={href}
@@ -78,7 +73,7 @@ const textLinks = getNavMenuLinksTranslated(lang);
               class:list={[
                 'link',
                 {
-                  active: isActiveRoute(href, url, lang),
+                  active: isActiveRoute(href, url),
                 },
               ]}
               href={href}
@@ -100,13 +95,11 @@ const textLinks = getNavMenuLinksTranslated(lang);
           ))
         }
       </div>
-
       <div class="theme-toggle">
         <ThemeToggle />
       </div>
-
       <div class="language-picker self-center">
-        <LanguagePicker lang={lang} currentPath={url.pathname} client:load />
+        <LanguagePicker url={url} client:load />
         <!-- <LanguagePickerAstro /> -->
       </div>
     </div>

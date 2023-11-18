@@ -1,9 +1,14 @@
 import { Menu, Transition } from "@headlessui/react";
-import { getRedirect, useTranslations } from "@/i18n/utils";
-import { LANGUAGES } from "@/i18n/ui";
+import { getLangFromUrl, getRedirect } from "@/i18n/utils";
+import { LANGUAGES, type TLanguages } from "@/i18n/ui";
+import { usePortfolioStore } from "@/store/global.store";
 
-export const LanguagePicker = ({lang, currentPath}: any) => {
-  const t = useTranslations(lang);
+interface Props {
+  url: URL
+}
+
+const LanguagePicker = ({ url }: Props) => {
+  const lang = getLangFromUrl(url);
 
   return (
     <nav>
@@ -11,7 +16,6 @@ export const LanguagePicker = ({lang, currentPath}: any) => {
         <li>
           <Menu>
             <Menu.Button className="text-white hover:text-almost-white inline-flex w-full justify-center gap-x-1.5 rounded-full bg-[color:var(--accent-regular)] border-fuchsia-900 px-3 py-1 text-sm font-semibold shadow-sm ring-gray-300 hover:border-almost-white">
-              {/* {t('language')} */}
               {lang.toUpperCase()}
               <svg
                 className="-mr-1 h-5 w-5 text-white"
@@ -22,7 +26,8 @@ export const LanguagePicker = ({lang, currentPath}: any) => {
                 <path
                   fillRule="evenodd"
                   d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  clipRule="evenodd"></path>
+                  clipRule="evenodd"
+                ></path>
               </svg>
             </Menu.Button>
             <Transition
@@ -34,16 +39,12 @@ export const LanguagePicker = ({lang, currentPath}: any) => {
               leaveTo="transform scale-95 opacity-0"
             >
               <Menu.Items className="absolute right-0 mt-4 w-40 py-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <LanguagePickerMenuItem
-                  givenLanguage={LANGUAGES.EN}
-                  currentLanguage={lang}
-                  currentPath={currentPath}
-                >English</LanguagePickerMenuItem>
-                <LanguagePickerMenuItem
-                  givenLanguage={LANGUAGES.ES}
-                  currentLanguage={lang}
-                  currentPath={currentPath}
-                >Español</LanguagePickerMenuItem>
+                <LanguagePickerMenuItem givenLanguage={LANGUAGES.EN} url={url}>
+                  English
+                </LanguagePickerMenuItem>
+                <LanguagePickerMenuItem givenLanguage={LANGUAGES.ES} url={url}>
+                  Español
+                </LanguagePickerMenuItem>
               </Menu.Items>
             </Transition>
           </Menu>
@@ -53,26 +54,29 @@ export const LanguagePicker = ({lang, currentPath}: any) => {
   );
 };
 
+export default LanguagePicker;
+
 const LanguagePickerMenuItem = ({
   givenLanguage,
-  currentLanguage,
-  currentPath,
+  url,
   children
 }: {
-  givenLanguage: string;
-  currentLanguage: string;
-  currentPath: string;
+  givenLanguage: TLanguages;
+  url: URL;
   children: any
 }) => {
+  const currentLanguage = getLangFromUrl(url);
   const selectedLang = currentLanguage === givenLanguage;
+  const setLang = usePortfolioStore(state => state.setLang)
 
   return (
     <Menu.Item disabled={selectedLang}>
-      {({ active }) => {
+      {() => {
         return (
           <a
             className={`${selectedLang ? 'text-fuchsia-900 cursor-default' : ''} ${!selectedLang ? 'text-gray-900 hover:text-fuchsia-900 hover:bg-fuchsia-100 cursor-pointer' : ''} block w-full text-left px-4 py-2 text-sm`}
-            href={getRedirect(givenLanguage, currentLanguage, currentPath)}
+            href={getRedirect(givenLanguage, url)}
+            onClick={() => setLang(givenLanguage)}
           >
             {children}
           </a>

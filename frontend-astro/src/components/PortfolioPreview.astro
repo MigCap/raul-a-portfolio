@@ -1,16 +1,15 @@
 ---
 // import type { CollectionEntry } from 'astro:content';
-import { getLangFromUrl, getWorksPatch } from '@/i18n/utils';
+import { getWorksPatch } from '@/i18n/utils';
 
 interface Props {
 	// project: CollectionEntry<'work'>;
 	work: any;
 }
 
-const { work } = Astro.props;
+const { props: { work }, url } = Astro;
 
-const lang = getLangFromUrl(Astro.url);
-const worksPath = getWorksPatch(lang);
+const worksPath = getWorksPatch(url);
 ---
 
 <a class="card" href={`${worksPath}${work.slug}`} transition:name=`work ${work._id} box`>

@@ -1,10 +1,9 @@
-import {defineConfig} from 'sanity'
+import {defineConfig, defineField} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
-import {schemaTypes, myStructure} from './schemas'
+import schemaTypes, {myStructure} from './schemas'
 import {baseLanguage, supportedLanguages} from './schemas/objects/locale/localeStringType'
 import { internationalizedArray } from 'sanity-plugin-internationalized-array'
-// import {documentInternationalization} from '@sanity/document-internationalization'
 
 export default defineConfig({
   name: 'default',
@@ -19,16 +18,16 @@ export default defineConfig({
     internationalizedArray({
       languages: supportedLanguages,
       defaultLanguages: [baseLanguage?.id as string],
-      fieldTypes: ['string', 'text'],
+      fieldTypes: [
+        'string',
+        'text',
+        defineField({
+          name: 'formattedText',
+          type: 'array',
+          of: [{type: 'block'}],
+        } as any),
+      ],
     }),
-    // documentInternationalization({
-    //   // Required configuration
-    //   supportedLanguages,
-    //   schemaTypes: ['works'],
-    //   // Optional
-    //   // Customizes the name of the language field
-    //   languageField: `language` // defaults to "language"
-    // }),
   ],
   schema: {
     types: schemaTypes,

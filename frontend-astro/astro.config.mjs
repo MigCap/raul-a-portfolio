@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import 'dotenv/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sanity from '@sanity/astro';
@@ -10,15 +11,12 @@ export default defineConfig({
     react(),
     tailwind(),
     sanity({
-      projectId: 'ynv31bfd',
+      projectId: process.env.SANITY_PROJECT_ID,
       dataset: 'production',
       apiVersion: '2021-10-21',
       useCdn: false,
     }),
   ],
-  // redirects: {
-  //   '/': '/en/'
-  // }
   // output: 'hybrid',
   // output: 'server',
   // adapter: vercel(),

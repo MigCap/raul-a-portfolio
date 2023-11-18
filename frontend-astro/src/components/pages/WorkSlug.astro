@@ -4,9 +4,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
 import Hero from '@/components/Hero.astro';
 import Icon from '@/components/icons/Icon.astro';
-import Pill from '@/components/Pill.astro';
+// import Pill from '@/components/Pill.astro';
 
-import { getLangFromUrl, getWorksPatch } from '@/i18n/utils';
+import { getLangFromUrl, getWorksPatch, getCurrentTranslatedSectionFromUrl } from '@/i18n/utils';
 import { mapWorkToLang } from '@/sanity/utils';
 
 interface Props {
@@ -14,19 +14,21 @@ interface Props {
   // entry: CollectionEntry<"work">;
 }
 
-const { entry: receivedEntry } = Astro.props;
+const { props: { entry: receivedEntry }, url } = Astro;
 // const { Content } = await entry.render();
 
 const lang = getLangFromUrl(Astro.url);
 const entry = mapWorkToLang(lang, receivedEntry);
+// const t = useTranslations(lang);
+const translatedSection = getCurrentTranslatedSectionFromUrl(url);
 ---
 
-<BaseLayout title={entry.title} description={entry.description}>
+<BaseLayout title={`${translatedSection} | ${entry.title}`} description={entry.description}>
   <div class="stack gap-20">
     <div class="stack gap-15">
       <header>
         <div class="wrapper stack gap-2">
-          <a class="back-link" href={getWorksPatch(lang)}
+          <a class="back-link" href={getWorksPatch(url)}
             ><Icon icon="arrow-left" /> Work</a
           >
           <Hero title={entry.title} align="start">

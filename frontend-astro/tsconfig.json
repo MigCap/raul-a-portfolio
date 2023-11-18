@@ -10,7 +10,8 @@
       "@/assets": ["public/assets/*"],
       "@/i18n": ["src/i18n/*"],
       "@/sanity": ["src/sanity/*"],
-      "@/lib": ["src/lib/*"]
+      "@/lib": ["src/lib/*"],
+      "@/schema": ["../cms-sanity/sanity-schema.ts"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

@@ -1,22 +1,25 @@
 ---
+import { PortableText } from "astro-portabletext";
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
 import Hero from '@/components/Hero.astro';
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl } from '@/i18n/utils';
 import { about } from '@/i18n/ui';
+import { getAboutPage } from '@/sanity/queries';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+
+const aboutPage = await getAboutPage(lang);
 ---
 
-<BaseLayout title=`About | ${about.name}` description=`About ${about.name}`>
+<BaseLayout title={`About | ${about.name}`} description={`About ${about.name} page`}>
   <div class="stack gap-20">
     <main class="wrapper about">
-      <Hero title={t('about')} tagline={`${t('about.tagline')}`}>
+      <Hero title={aboutPage.title} tagline={aboutPage.description}>
         <img
           width="1553"
           height="873"
-          src="/assets/stock-3.jpg"
+          src={aboutPage.img} alt={aboutPage.img_alt || ''}
           alt="Raul de Diego at work with a colleague"
         />
       </Hero>
@@ -24,33 +27,17 @@ const t = useTranslations(lang);
       <section>
         <h2 class="section-title">Background</h2>
         <div class="content">
-          <p>
-            Lorem ipsum dolor sit amet. Sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Proin nibh nisl condimentum id
-            venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc.
-            Arcu odio ut sem nulla pharetra diam sit amet. Diam quis enim
-            lobortis scelerisque fermentum dui faucibus in ornare.
-          </p>
-          <p>
-            Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget
-            gravida cum sociis natoque penatibus. Cras fermentum odio eu feugiat
-            pretium nibh. Proin nibh nisl condimentum id venenatis. Porta nibh
-            venenatis cras sed felis eget velit. Id diam vel quam elementum
-            pulvinar etiam non.
-          </p>
-          <p>
-            Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut
-            sem viverra aliquet eget sit amet. Lacus luctus accumsan tortor
-            posuere ac ut consequat semper viverra. Viverra accumsan in nisl
-            nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-            pretium fusce.
-          </p>
+          <PortableText
+            value={aboutPage.background}
+          />
         </div>
       </section>
       <section>
         <h2 class="section-title">Education</h2>
         <div class="content">
-          <p>Corporis voluptates tenetur laudantium.</p>
+          <PortableText
+            value={aboutPage.education}
+          />
         </div>
       </section>
       <section>

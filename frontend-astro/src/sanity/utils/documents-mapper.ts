@@ -44,12 +44,24 @@ export function mapCategories(categories: any, lang: string) {
   });
 }
 
-export function mapHome(home: any, lang: string) {
+export function mapHomePage(home: any, lang: string) {
   return {
     ...home,
     title: getFieldValueByLang(lang, home.title),
     description: getFieldValueByLang(lang, home.description),
     long_description: getFieldValueByLang(lang, home.long_description),
     img: urlForImage(home.imgUrl.asset),
+  };
+}
+
+export function mapAboutPage(about: any, lang: string) {
+  return {
+    ...about,
+    title: getFieldValueByLang(lang, about.title),
+    description: getFieldValueByLang(lang, about.description),
+    long_description: getFieldValueByLang(lang, about.long_description),
+    background: getFieldValueByLang(lang, about.background),
+    education: getFieldValueByLang(lang, about.education),
+    img: urlForImage(about.imgUrl.asset),
   };
 }

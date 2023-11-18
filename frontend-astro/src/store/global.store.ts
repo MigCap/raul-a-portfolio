@@ -1,10 +1,12 @@
+import { DEFAULT_LANG, type TLanguages } from "@/i18n/ui";
 import { create } from "zustand";
 
-export const usePlayerStore = create((set) => ({
-  isPlaying: false,
-  currentMusic: { playlist: null, song: null, songs: [] },
-  volume: 1,
-  setVolume: (volume: any) => set({ volume }),
-  setIsPlaying: (isPlaying: any) => set({ isPlaying }),
-  setCurrentMusic: (currentMusic: any) => set({ currentMusic }),
+interface PortfolioState {
+  lang: typeof DEFAULT_LANG;
+  setLang: (lang: TLanguages) => void;
+}
+
+export const usePortfolioStore = create<PortfolioState>((set) => ({
+  lang: DEFAULT_LANG,
+  setLang: (lang: TLanguages) => set({ lang }),
 }))

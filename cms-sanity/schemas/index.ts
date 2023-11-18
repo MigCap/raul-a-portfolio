@@ -14,7 +14,7 @@ import { ABOUT_PAGE_TITLE } from './documents/about'
 import { HOME_PAGE_TITLE } from './documents/home'
 import { USER_INFO_PAGE_TITLE } from './documents/userInfo'
 
-export const schemaTypes = [
+const schemaTypes = [
   userInfo,
   home,
   about,
@@ -26,6 +26,8 @@ export const schemaTypes = [
   //   author,
   blockContent,
 ]
+
+export default schemaTypes;
 
 export const myStructure = (S: any) =>
   S.list()

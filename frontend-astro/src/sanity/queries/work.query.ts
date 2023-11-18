@@ -5,7 +5,6 @@ export function getWorksQuery() {
     return `*[_type == "works"]`
 }
 
-
 export async function getWorks(lang: string) {
     const fetchedWorks = await useSanityClient().fetch(getWorksQuery());
     const works = mapWorksForMainList(fetchedWorks, lang);
