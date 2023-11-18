@@ -1,6 +1,4 @@
 ---
-import { useSanityClient } from '@sanity/astro';
-
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 import ContactCTA from '@/components/common/ContactCTA.astro';
@@ -9,7 +7,7 @@ import Hero from '@/components/common/Hero.astro';
 import Grid from '@/components/common/Grid.astro';
 
 import { about } from '@/i18n/ui';
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getCurrentTranslatedSectionFromUrl, getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { getWorks, getCategories } from '@/sanity/queries';
 
 const lang = getLangFromUrl(Astro.url);
@@ -17,10 +15,11 @@ const t = useTranslations(lang);
 
 const works = await getWorks(lang);
 const categories = await getCategories(lang);
+const translatedSection = getCurrentTranslatedSectionFromUrl(Astro.url);
 ---
 
 <BaseLayout
-  title={`My Work | ${about.name}`}
+  title={`${translatedSection} | ${about.name}`}
   description={`Learn about ${about.name}'s most recent projects`}
 >
   <div class="stack gap-20">
@@ -44,4 +43,3 @@ const categories = await getCategories(lang);
     <ContactCTA />
   </div>
 </BaseLayout>
- @/sanity/utils/urlForImage

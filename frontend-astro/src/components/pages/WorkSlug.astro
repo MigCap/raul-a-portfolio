@@ -17,9 +17,9 @@ interface Props {
 const { props: { entry: receivedEntry }, url } = Astro;
 // const { Content } = await entry.render();
 
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(url);
 const entry = mapWorkToLang(lang, receivedEntry);
-// const t = useTranslations(lang);
+
 const translatedSection = getCurrentTranslatedSectionFromUrl(url);
 ---
 

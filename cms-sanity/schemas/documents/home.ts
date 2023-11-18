@@ -50,7 +50,7 @@ export default defineType({
       name: 'title',
       options: {
         collapsible: true,
-        collapsed: false,
+        collapsed: true,
         modal: {type: 'popover'},
       },
     },
@@ -58,7 +58,7 @@ export default defineType({
       name: 'description',
       options: {
         collapsible: true,
-        collapsed: false,
+        collapsed: true,
         modal: {type: 'popover'},
       },
     }

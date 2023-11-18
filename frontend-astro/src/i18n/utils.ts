@@ -5,6 +5,7 @@ import {
   LANGUAGES,
   type Languages,
   type TranslationKey,
+  ROUTE_PREFIX,
 } from '@/i18n/ui';
 
 export function getLangFromUrl(url: URL) {
@@ -25,7 +26,7 @@ export function getCurrentTranslatedSectionFromUrl(url: URL) {
   const section = url.pathname.split('/')[2] as TranslationKey;
   const t = useTranslations(lang);
 
-  return t(section);
+  return t(`${ROUTE_PREFIX}${section}` as TranslationKey);
 }
 
 export function getTranslatedRouteSection(
