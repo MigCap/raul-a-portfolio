@@ -16,6 +16,7 @@ import type {
   SanityImagePalette,
   SanityImagePaletteSwatch,
 } from "sanity-codegen";
+import { InternationalizedArrayString, InternationalizedArrayText, InternationalizedArrayFormattedText } from "./sanity-schema-internationalized";
 
 export type {
   SanityReference,
@@ -140,42 +141,42 @@ export interface About extends SanityDocument {
    *
    *
    */
-  title?: InternationalizedArrayString;
+  title: InternationalizedArrayString;
 
   /**
    * description — `internationalizedArrayString`
    *
    *
    */
-  description?: InternationalizedArrayString;
+  description: InternationalizedArrayString;
 
   /**
    * long_description — `internationalizedArrayText`
    *
    *
    */
-  long_description?: InternationalizedArrayText;
+  long_description: InternationalizedArrayText;
 
   /**
    * background — `internationalizedArrayFormattedText`
    *
    *
    */
-  background?: InternationalizedArrayFormattedText;
+  background: InternationalizedArrayFormattedText;
 
   /**
    * education — `internationalizedArrayFormattedText`
    *
    *
    */
-  education?: InternationalizedArrayFormattedText;
+  education: InternationalizedArrayFormattedText;
 
   /**
    * imgUrl — `image`
    *
    *
    */
-  imgUrl?: {
+  imgUrl: {
     _type: "image";
     asset: SanityReference<SanityImageAsset>;
     crop?: SanityImageCrop;
@@ -347,42 +348,3 @@ export type Documents =
   | Categories
   | Experiences
   | WorkExperience;
-
-/**
- * This interface is a stub. It was referenced in your sanity schema but
- * the definition was not actually found. Future versions of
- * sanity-codegen will let you type this explicity.
- */
-type InternationalizedArrayString = Array<{
-  _type: 'internationalizedArrayStringValue'
-  _key: string
-  value: string
-}>;
-
-/**
- * This interface is a stub. It was referenced in your sanity schema but
- * the definition was not actually found. Future versions of
- * sanity-codegen will let you type this explicity.
- */
-type InternationalizedArrayText = Array<{
-  _type: 'internationalizedArrayTextValue'
-  _key: string
-  value: string
-}>;
-
-/**
- * This interface is a stub. It was referenced in your sanity schema but
- * the definition was not actually found. Future versions of
- * sanity-codegen will let you type this explicity.
- */
-type InternationalizedArrayFormattedText = Array<{
-  _type: 'internationalizedArrayFormattedText'
-  _key: string
-  value: Array<{
-    markDefs: [];
-    children: { text: string; _key: string; _type: string; marks: [] }[],
-    _type: string;
-    style: string;
-    _key: string;
-  }>
-}>;

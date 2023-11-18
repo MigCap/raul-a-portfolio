@@ -1,8 +1,8 @@
 ---
 import { PortableText } from "astro-portabletext";
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import ContactCTA from '@/components/ContactCTA.astro';
-import Hero from '@/components/Hero.astro';
+import ContactCTA from '@/components/common/ContactCTA.astro';
+import Hero from '@/components/common/Hero.astro';
 import { getLangFromUrl } from '@/i18n/utils';
 import { about } from '@/i18n/ui';
 import { getAboutPage } from '@/sanity/queries';
@@ -19,7 +19,7 @@ const aboutPage = await getAboutPage(lang);
         <img
           width="1553"
           height="873"
-          src={aboutPage.img} alt={aboutPage.img_alt || ''}
+          src={aboutPage.img}
           alt="Raul de Diego at work with a colleague"
         />
       </Hero>

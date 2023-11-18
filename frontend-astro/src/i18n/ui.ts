@@ -253,6 +253,8 @@ export const ROUTES_IDS: RoutesIdsType = {
 //   ),
 // };
 
+export type TranslationKey = keyof (typeof translations)[typeof DEFAULT_LANG]
+
 export const translations = {
   [LANGUAGES.EN]: {
     // ...routesTranslations[LANGUAGES.EN],

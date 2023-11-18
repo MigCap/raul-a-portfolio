@@ -4,6 +4,7 @@ import {
   ROUTES_IDS,
   LANGUAGES,
   type TLanguages,
+  type TranslationKey,
 } from '@/i18n/ui';
 
 export function getLangFromUrl(url: URL) {
@@ -12,7 +13,6 @@ export function getLangFromUrl(url: URL) {
   return DEFAULT_LANG;
 }
 
-export type TranslationKey = keyof (typeof translations)[typeof DEFAULT_LANG]
 
 export function useTranslations(lang: keyof typeof translations) {
   return function t(key: TranslationKey) {

@@ -1,8 +1,8 @@
 ---
 import Icon from '@/components/icons/Icon.astro';
-import LanguagePicker from '@/components/LanguagePicker.tsx';
+import LanguagePicker from '@/components/common/LanguagePicker';
 // import LanguagePickerAstro from '@/components/LanguagePicker.astro';
-import ThemeToggle from '@/components/ThemeToggle.astro';
+import ThemeToggle from '@/components/common/ThemeToggle.astro';
 import MenuButton from './MenuButton.astro';
 import { about, socialIconLinks } from '@/i18n/ui';
 import { isActiveRoute, getNavMenuLinksTranslated, } from '@/i18n/utils';
@@ -287,3 +287,4 @@ const textLinks = getNavMenuLinksTranslated(url);
     }
   }
 </style>
+@/components/common/LanguagePicker

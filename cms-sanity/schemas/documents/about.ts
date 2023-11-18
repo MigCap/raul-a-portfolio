@@ -18,37 +18,41 @@ export default defineType({
       }
     },
   },
-  ...getCodegenConfig(),
   fields: [
     {
       name: 'title',
       type: 'internationalizedArrayString',
       fieldset: 'title',
       ...requiredAllLanguagesValidation,
+      ...getCodegenConfig(),
     },
     {
       name: 'description',
       type: 'internationalizedArrayString',
       fieldset: 'description',
       ...requiredAllLanguagesValidation,
+      ...getCodegenConfig(),
     },
     {
       name: 'long_description',
       type: 'internationalizedArrayText',
       fieldset: 'description',
       ...requiredAllLanguagesValidation,
+      ...getCodegenConfig(),
     },
     {
       name: 'background',
       type: 'internationalizedArrayFormattedText',
       fieldset: 'background',
       ...requiredAllLanguagesValidation,
+      ...getCodegenConfig(),
     },
     {
       name: 'education',
       type: 'internationalizedArrayFormattedText',
       fieldset: 'education',
       ...requiredAllLanguagesValidation,
+      ...getCodegenConfig(),
     },
     {
       name: 'imgUrl',
@@ -57,6 +61,7 @@ export default defineType({
         hotspot: true,
       },
       ...requiredImgValidation,
+      ...getCodegenConfig(),
     },
   ],
   fieldsets: [
