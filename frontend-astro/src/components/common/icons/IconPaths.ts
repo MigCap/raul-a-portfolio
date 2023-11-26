@@ -12,6 +12,29 @@
  */
 
 export const iconPaths = {
+	'logo-raul': `<g>
+    <rect
+      x="91.29"
+      y="297.35"
+      width="58.43"
+      height="16"
+      fill={theme.colors.white}></rect>
+    <rect
+      x="112.13"
+      y="83.53"
+      width="16"
+      height="221.83"
+      fill={theme.colors.white}></rect>
+    <path
+      d="M165.33,203.37h-45.2v-16h45.2a80.68,80.68,0,0,0,29-6.51c17.67-8,26.63-22,26.63-41.64,0-13.13-4-23.74-11.81-31.56-16-16-43.3-16.13-43.75-16.13H91.29v-16h74c1.31,0,34.13,0,55,20.71,11,10.94,16.6,25.4,16.6,43,0,26.37-12.64,45.89-36.57,56.45A95.9,95.9,0,0,1,165.33,203.37Z"
+      fill={theme.colors.white}></path>
+    <path
+      d="M227.8,313.35c-.52,0-1,0-1.54,0a30.18,30.18,0,0,1-29.08-30.47V228s.09-9.44-6.69-16.34c-5.37-5.46-13.83-8.24-25.16-8.24a8,8,0,0,1,0-16c15.93,0,28.31,4.47,36.81,13.27,10.86,11.26,11.07,25.63,11,27.65v54.57a14.43,14.43,0,0,0,13.63,14.48c.67,0,1.33,0,2,0a14.85,14.85,0,0,0,14-14.9V242a8,8,0,0,1,16,0v40.41a30.59,30.59,0,0,1-29.49,30.89C228.84,313.35,228.33,313.35,227.8,313.35Z"
+      fill={theme.colors.white}></path>
+    <path
+      d="M265.66,83.57a17.26,17.26,0,0,1-2.77.23,14.41,14.41,0,0,1-14.33-14.33,14.33,14.33,0,0,1,28.65,0q0,25.77-20.33,40.2l-4.62-4.62Q262.65,95.24,265.66,83.57Z"
+      fill={theme.colors.bronze}></path>
+  </g>`,
 	'terminal-window': `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m80 96 40 32-40 32m56 0h40"/><rect width="192" height="160" x="32" y="48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16.97" rx="8.5"/>`,
 	trophy: `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M56 56v55.1c0 39.7 31.8 72.6 71.5 72.9a72 72 0 0 0 72.5-72V56a8 8 0 0 0-8-8H64a8 8 0 0 0-8 8Zm40 168h64m-32-40v40"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M198.2 128h9.8a32 32 0 0 0 32-32V80a8 8 0 0 0-8-8h-32M58 128H47.9a32 32 0 0 1-32-32V80a8 8 0 0 1 8-8h32"/>`,
 	strategy: `<circle cx="68" cy="188" r="28" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m40 72 40 40m0-40-40 40m136 56 40 40m0-40-40 40M136 80V40h40"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m136 40 16 16c40 40 8 88-24 96"/>`,

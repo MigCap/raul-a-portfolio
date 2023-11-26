@@ -1,29 +1,36 @@
 ---
-import Icon from '@/components/icons/Icon.astro';
+import Icon from '@/components/common/Icon.astro';
+import LogoRaul from '@/components/common/icons/LogoRaul.astro';
 import LanguagePicker from '@/components/common/LanguagePicker';
-// import LanguagePickerAstro from '@/components/LanguagePicker.astro';
 import ThemeToggle from '@/components/common/ThemeToggle.astro';
 import MenuButton from './MenuButton.astro';
 import { about, socialIconLinks } from '@/i18n/ui';
-import { isActiveRoute, getNavMenuLinksTranslated, } from '@/i18n/utils';
+import { isActiveRoute, getNavMenuLinksTranslated, getLangFromUrl, } from '@/i18n/utils';
 
 const { url } = Astro;
 
 /** Main menu items */
 const textLinks = getNavMenuLinksTranslated(url);
-
+const lang = getLangFromUrl(url);
 ---
 
 <nav>
   <div class="menu-header">
-    <a href="/" class="site-title">
-      <Icon
+    <a href={`/${lang}/`} class="site-title w-10">
+      <LogoRaul />
+      <!-- <span class="">{about.name}</span> -->
+      <!-- <Icon
         icon="terminal-window"
         color="var(--accent-regular)"
         size="1.6em"
         gradient
-      />
-      {about.name}
+      /> -->
+      <!-- <Icon
+        icon="logo-raul"
+        color="var(--accent-regular)"
+        size="1.6em"
+        gradient
+      /> -->
     </a>
     <MenuButton />
   </div>

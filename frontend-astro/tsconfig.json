@@ -6,11 +6,11 @@
       "@/pages": ["src/pages/*"],
       "@/components": ["src/components/*"],
       "@/layouts": ["src/layouts/*"],
-      "@/icons": ["src/components/icons/*"],
+      "@/icons": ["src/components/common/icons/*"],
       "@/assets": ["public/assets/*"],
       "@/i18n": ["src/i18n/*"],
       "@/sanity": ["src/sanity/*"],
-      "@/lib": ["src/lib/*"],
+      "@/styles": ["src/styles/*"],
       "@/schema": ["../cms-sanity/sanity-schema.ts"]
     },
     "jsx": "react-jsx",

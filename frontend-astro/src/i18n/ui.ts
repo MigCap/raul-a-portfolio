@@ -3,7 +3,7 @@
 // import IconInstagram from '@/components/icons/IconInstagram.astro';
 // import IconLinkedin from '@/components/icons/IconLinkedin.astro';
 
-import { iconPaths } from '@/components/icons/IconPaths';
+import { iconPaths } from '@/components/common/icons/IconPaths';
 
 export const LANGUAGES: Record<string, Languages> = {
   EN: 'en',

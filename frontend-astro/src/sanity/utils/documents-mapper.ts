@@ -50,6 +50,17 @@ export function mapCategories(categories: Schema.Categories[], lang: string) {
   });
 }
 
+export function mapCategoriesByLang(categories: any) {
+  return categories.map((category: any) => {
+    return {
+      ...category,
+      id: category._id,
+      title: category.title[0],
+      slug: category.slug.current
+    };
+  });
+}
+
 export function mapHomePage(home: any, lang: string) {
   return {
     ...home,
