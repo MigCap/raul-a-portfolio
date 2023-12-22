@@ -1,0 +1,119 @@
+---
+
+---
+
+<!-- <div id="custom-cursor"></div> -->
+<custom-cursor id="custom-cursor"></custom-cursor>
+
+<script>
+  class CustomCursor extends HTMLElement {
+    customCursor = document.getElementById('custom-cursor')!;
+
+    constructor() {
+      super();
+      this.addListeners();
+    }
+
+    addListeners() {
+      window.addEventListener('DOMContentLoaded', () =>
+        this.setCustomCursorListeners(),
+      );
+      document.addEventListener('astro:after-swap', () =>
+        this.setCustomCursorListeners(),
+      );
+    }
+
+    setCustomCursorListeners() {
+      this.addMouseMove();
+      this.addHoverElementsCustomCursor();
+      this.addLinksHoverCustomCursor();
+    }
+
+    addMouseMove() {
+      const updateCursorPosition = (event: MouseEvent) => {
+        this.customCursor.style.top = `${event.clientY}px`;
+        this.customCursor.style.left = `${event.clientX}px`;
+      };
+      window.addEventListener('mousemove', (event) => {
+        updateCursorPosition(event);
+      });
+    }
+
+    addHoverElementsCustomCursor() {
+      const hoverElements = document.querySelectorAll(
+        '.hover-element-custom-cursor',
+      );
+      for (const hoverElement of hoverElements) {
+        hoverElement.addEventListener('mouseover', () => {
+          this.customCursor.classList.add('custom-cursor--link');
+          this.customCursor.classList.add('zoom');
+        });
+        hoverElement.addEventListener('mouseout', () => {
+          this.customCursor.classList.remove('custom-cursor--link');
+          this.customCursor.classList.remove('zoom');
+        });
+      }
+    }
+
+    addLinksHoverCustomCursor() {
+      const links = document.querySelectorAll('a, button, #nav-btn, input.btn');
+      for (const link of links) {
+        link.addEventListener('mouseover', () => {
+          this.customCursor.classList.add('custom-cursor--link');
+          this.customCursor.classList.add('zoom');
+        });
+        link.addEventListener('mouseout', () => {
+          this.customCursor.classList.remove('custom-cursor--link');
+          this.customCursor.classList.remove('zoom');
+        });
+      }
+    }
+  }
+  customElements.define('custom-cursor', CustomCursor);
+</script>
+
+<style is:global>
+  *,
+  body {
+    cursor: none;
+  }
+
+  body:hover #custom-cursor {
+    opacity: 1;
+  }
+
+  #custom-cursor {
+    /* z-index: 99999; */
+    /* width: 2px; */
+    /* height: 2px; */
+    /* border-radius: 50%; */
+    /* background-color: white; */
+    /* position: fixed; */
+    /* top: 0; */
+    /* opacity: 0; */
+    /* pointer-events: none; */
+    /* mix-blend-mode: difference; */
+    /* transition: transform 350ms ease; */
+
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    /* transition: transform 350ms ease; */
+    transform: translate(-50%, -50%) scale(0.3);
+    transition: transform 500ms;
+    z-index: 99999;
+  }
+
+  #custom-cursor.zoom {
+    transform: scale(3);
+  }
+  #custom-cursor.custom-cursor--link {
+    transform: translate(-50%, -50%) scale(1.25);
+    transform: scale(3);
+  }
+</style>

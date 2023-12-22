@@ -128,7 +128,6 @@ export const translations = {
   },
   [LANGUAGES.ES]: {
     ...routesTranslations[LANGUAGES.ES],
-
     'about.position': 'Diseñador Gráfico e Ilustrador',
     'about.position.description': 'Artefinalista y Director de Arte',
     blog: 'Blog',

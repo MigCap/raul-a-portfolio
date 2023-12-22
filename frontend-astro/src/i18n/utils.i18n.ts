@@ -6,7 +6,7 @@ import {
   type Languages,
   type TranslationKey,
   ROUTE_PREFIX,
-} from '@/i18n/ui';
+} from '@/i18n/ui.i18n';
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');

@@ -1,13 +1,13 @@
 ---
-import BaseLayout from '@/components/common/layouts/BaseLayout.astro';
+import BaseLayout from '@/components/layouts/BaseLayout.astro';
 
 import ContactCTA from '@/components/common/ContactCTA.astro';
 import PortfolioPreview from '@/components/common/PortfolioPreview.astro';
 import Hero from '@/components/common/Hero.astro';
 import Grid from '@/components/common/Grid.astro';
 
-import { about } from '@/i18n/ui';
-import { getCurrentTranslatedSectionFromUrl, getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { about } from '@/i18n/ui.i18n';
+import { getCurrentTranslatedSectionFromUrl, getLangFromUrl, useTranslations } from '@/i18n/utils.i18n';
 import { getWorks, getCategories } from '@/sanity/queries';
 
 const lang = getLangFromUrl(Astro.url);

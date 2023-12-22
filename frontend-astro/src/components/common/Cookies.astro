@@ -53,67 +53,70 @@
 
 <script>
   class CookiesToggle extends HTMLElement {
+    cookiesEl = document.getElementById('cookies-element')!;
+    acceptCookiesBtnEl = document.getElementById('accept-cookies')!;
+
     constructor() {
       super();
+      this.addListeners();
+      this.initializeHasCookiesBtn();
+    }
 
-      let cookiesElement = document.getElementById('cookies-element')!;
-      let acceptCookiesBtn = document.getElementById('accept-cookies')!;
-
-      const getCookies = () => {
-        return localStorage.getItem('cookies') || 'false';
-      };
-      const cookies = getCookies();
-      const hasCookies = cookies === 'true';
+    addListeners() {
+      const hasCookies = this.getHasCookiesFromLocalstorage() === 'true';
 
       window.addEventListener('DOMContentLoaded', () => {
-        setCookies(hasCookies);
+        this.setHasCookies(hasCookies);
       });
       document.addEventListener('astro:after-swap', () => {
-        setCookies(hasCookies);
+        this.setHasCookies(hasCookies);
       });
+    }
 
-      function toggleCookiesSectionClasses(hasCookies: boolean) {
-        const enteringClasses = [
-          'ease-out',
-          'duration-100',
-          'scale-100',
-          'md:flex',
-        ];
-        const leavingClasses = ['ease-in', 'duration-75', 'scale-95', 'hidden'];
-
-        if (hasCookies) {
-          cookiesElement.classList.add(...leavingClasses);
-          cookiesElement.classList.remove(...enteringClasses);
-        } else {
-          cookiesElement.classList.add(...enteringClasses);
-          cookiesElement.classList.remove(...leavingClasses);
-        }
-      }
-
-      /** Set the cookies consent. */
-      const setCookies = (hasCookies: boolean) => {
-        cookiesElement.setAttribute(
-          'data-cookies',
-          hasCookies ? 'true' : 'false',
-        );
-        acceptCookiesBtn.setAttribute('aria-pressed', String(hasCookies));
-        toggleCookiesSectionClasses(hasCookies);
-        localStorage.setItem('cookies', hasCookies ? 'true' : 'false');
-      };
-
+    initializeHasCookiesBtn() {
       // Toggle the cookies consent when a user clicks the button.
-      acceptCookiesBtn.addEventListener('click', () => {
-        setCookies(this.isSectionOpen());
+      this.acceptCookiesBtnEl.addEventListener('click', () => {
+        this.setHasCookies(this.isCookiesSectionOpen());
       });
 
       // Initialize button state to reflect current theme.
-      setCookies(this.isSectionOpen());
+      this.setHasCookies(this.isCookiesSectionOpen());
     }
 
-    isSectionOpen() {
-      return document
-        .getElementById('cookies-element')!
-        .classList.contains('md:flex');
+    setHasCookies(hasCookies: boolean) {
+      this.cookiesEl.setAttribute(
+        'data-cookies',
+        hasCookies ? 'true' : 'false',
+      );
+      this.acceptCookiesBtnEl.setAttribute('aria-pressed', String(hasCookies));
+      this.toggleCookiesSectionClasses(hasCookies);
+      localStorage.setItem('cookies', hasCookies ? 'true' : 'false');
+    };
+
+    getHasCookiesFromLocalstorage() {
+      return localStorage.getItem('cookies') || 'false';
+    }
+
+    isCookiesSectionOpen() {
+      return this.cookiesEl.classList.contains('md:flex');
+    }
+
+    toggleCookiesSectionClasses(hasCookies: boolean) {
+      const enteringClasses = [
+        'ease-out',
+        'duration-100',
+        'scale-100',
+        'md:flex',
+      ];
+      const leavingClasses = ['ease-in', 'duration-75', 'scale-95', 'hidden'];
+
+      if (hasCookies) {
+        this.cookiesEl.classList.add(...leavingClasses);
+        this.cookiesEl.classList.remove(...enteringClasses);
+      } else {
+        this.cookiesEl.classList.add(...enteringClasses);
+        this.cookiesEl.classList.remove(...leavingClasses);
+      }
     }
   }
   customElements.define('cookies-toggle', CookiesToggle);

@@ -2,7 +2,7 @@
 // import { getCollection } from 'astro:content';
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from '@/components/common/layouts/BaseLayout.astro';
+import BaseLayout from '@/components/layouts/BaseLayout.astro';
 
 // Component Imports
 import CallToAction from '@/components/common/CallToAction.astro';
@@ -17,8 +17,8 @@ import ContactCTA from '@/components/common/ContactCTA.astro';
 import Skills from '@/components/common/Skills.astro';
 
 // Utils
-import { getLangFromUrl, getWorksPatch } from '@/i18n/utils';
-import { about } from '@/i18n/ui';
+import { getLangFromUrl, getWorksPatch } from '@/i18n/utils.i18n';
+import { about } from '@/i18n/ui.i18n';
 import { getHomePage, getMostRecentWorks } from '@/sanity/queries';
 
 const { url } = Astro;
@@ -60,7 +60,7 @@ const home = await getHomePage(lang);
     <main class="wrapper stack gap-20 lg:gap-48">
       <section class="section with-background with-cta">
         <header class="section-header stack gap-2 lg:gap-4">
-          <h3>Selected Work</h3>
+          <h3 class="hover-element-custom-cursor">Selected Work</h3>
           <p>
             Take a look below at some of my featured work for clients from the
             past few years.

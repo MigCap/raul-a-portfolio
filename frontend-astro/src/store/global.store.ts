@@ -1,4 +1,4 @@
-import { DEFAULT_LANG, type Languages } from "@/i18n/ui";
+import { DEFAULT_LANG, type Languages } from "@/i18n/ui.i18n";
 import { create } from "zustand";
 
 interface PortfolioState {

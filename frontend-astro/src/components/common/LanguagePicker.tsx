@@ -1,6 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
-import { getLangFromUrl, getRedirect } from "@/i18n/utils";
-import { LANGUAGES, type Languages } from "@/i18n/ui";
+import { getLangFromUrl, getRedirect } from "@/i18n/utils.i18n";
+import { LANGUAGES, type Languages } from "@/i18n/ui.i18n";
 import { usePortfolioStore } from "@/store/global.store";
 
 interface Props {

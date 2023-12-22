@@ -69,40 +69,42 @@ import Icon from '@/components/common/Icon.astro';
 
 <script>
   class ThemeToggle extends HTMLElement {
+    themeToogleButton = this.querySelector('button')!;
+    isDarkTheme = this.getTheme() === 'dark';
+
     constructor() {
       super();
+      this.addListeners();
+      this.initializeThemeToogleButton();
+    }
 
-      const button = this.querySelector('button')!;
+    addListeners() {
+      window.addEventListener('DOMContentLoaded', () => this.setTheme(this.isDarkTheme));
+      document.addEventListener('astro:after-swap', () => this.setTheme(this.isDarkTheme));
+    }
 
-      const getTheme = () => localStorage.getItem('theme') || 'light';
-      const theme = getTheme();
-      const isDarkTheme = theme === 'dark';
-
-      window.addEventListener('DOMContentLoaded', () => setTheme(isDarkTheme));
-      document.addEventListener('astro:after-swap', () =>
-        setTheme(isDarkTheme),
-      );
-
-      /** Set the theme to dark/light mode. */
-      const setTheme = (dark: boolean) => {
-        document.documentElement.setAttribute('data-theme', theme);
-        document.documentElement.classList[dark ? 'add' : 'remove'](
-          'theme-dark',
-        );
-        button.setAttribute('aria-pressed', String(dark));
-        localStorage.setItem('theme', dark ? 'dark' : 'light');
-      };
-
+    initializeThemeToogleButton() {
       // Toggle the theme when a user clicks the button.
-      button.addEventListener('click', () => setTheme(!this.isDark()));
+      this.themeToogleButton.addEventListener('click', () => this.setTheme(!this.hasDarkThemeClass()));
 
       // Initialize button state to reflect current theme.
-      setTheme(this.isDark());
-    }
+      this.setTheme(this.hasDarkThemeClass());
+    };
 
-    isDark() {
+    hasDarkThemeClass() {
       return document.documentElement.classList.contains('theme-dark');
     }
+
+    getTheme() {
+      return localStorage.getItem('theme') || 'light'
+    };
+
+    setTheme(isDarkTheme: boolean) {
+      document.documentElement.setAttribute('data-theme', this.getTheme());
+      document.documentElement.classList[isDarkTheme ? 'add' : 'remove']('theme-dark');
+      this.themeToogleButton.setAttribute('aria-pressed', String(isDarkTheme));
+      localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    };
   }
   customElements.define('theme-toggle', ThemeToggle);
 </script>
