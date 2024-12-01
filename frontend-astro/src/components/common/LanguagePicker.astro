@@ -46,7 +46,7 @@ const { url } = Astro;
           return (
             <a
               href={`${getRedirect(givenLanguage, url)}`}
-              // class="block px-4 py-2 text-sm text-gray-700"
+              class="block px-4 py-2 text-sm text-gray-700"
               class={`${selectedLang ? 'text-fuchsia-900 cursor-default' : ''} ${!selectedLang ? 'text-gray-900 hover:text-fuchsia-900 hover:bg-fuchsia-100 cursor-pointer' : ''} block w-full text-left px-4 py-2 text-sm`}
               role="menuitem"
               tabindex={`${index}`}
@@ -54,8 +54,8 @@ const { url } = Astro;
             >
               {givenLanguage}
             </a>
-          )}
-        )
+          );
+        })
       }
     </div>
   </div>

@@ -45,6 +45,12 @@ const LanguagePicker = ({ url }: Props) => {
                 <LanguagePickerMenuItem givenLanguage={LANGUAGES.ES} url={url}>
                   Español
                 </LanguagePickerMenuItem>
+                <LanguagePickerMenuItem givenLanguage={LANGUAGES.IT} url={url}>
+                  Italiano
+                </LanguagePickerMenuItem>
+                <LanguagePickerMenuItem givenLanguage={LANGUAGES.FR} url={url}>
+                  Francés
+                </LanguagePickerMenuItem>
               </Menu.Items>
             </Transition>
           </Menu>

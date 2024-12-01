@@ -1,0 +1,59 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils.i18n';
+import { getCategories } from '@/sanity/queries';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const categories = await getCategories(lang);
+---
+
+<div class="categories">
+  <h4 class="categories__title">{t('categories')}</h4>
+  <div>
+    <ul class="categories__list">
+      {
+        categories.map((category: any) => (
+          <li>
+            <a class="categories__list_item" href="#">
+              {category.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  .categories__title {
+    margin: 1rem 0; /* Remove default margin */
+  }
+
+  .categories__list {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+
+  .categories__list li {
+    margin-bottom: 10px; /* Add space between categories */
+  }
+
+  .categories__list_item {
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  .categories__list_item:hover,
+  .categories__list_item:focus {
+    text-decoration-color: currentColor;
+  }
+
+  .categories__list ul ul {
+    /* Style subcategories */
+    padding-left: 20px; /* Indent subcategories */
+    background-color: #f7f7f7; /* Add background color */
+    border-left: 1px solid #ccc; /* Add border */
+  }
+</style>

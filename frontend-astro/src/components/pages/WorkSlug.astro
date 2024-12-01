@@ -8,6 +8,8 @@ import Icon from '@/components/common/Icon.astro';
 
 import { getLangFromUrl, getWorksPatch, getCurrentTranslatedSectionFromUrl } from '@/i18n/utils.i18n';
 import { mapWorkToLang } from '@/sanity/utils';
+import { getWorkCategoriesTitles } from '@/sanity/queries';
+import Pill from '../common/Pill.astro';
 
 interface Props {
   entry: any;
@@ -19,7 +21,7 @@ const { props: { entry: receivedEntry }, url } = Astro;
 
 const lang = getLangFromUrl(url);
 const entry = mapWorkToLang(lang, receivedEntry);
-
+const categoriesTitles = await getWorkCategoriesTitles(entry, lang);
 const translatedSection = getCurrentTranslatedSectionFromUrl(url);
 ---
 
@@ -39,6 +41,9 @@ const translatedSection = getCurrentTranslatedSectionFromUrl(url);
               <!-- <div class="tags">
                 {entry.categories.map((c: any) => <Pill>{c._type}</Pill>)}
               </div> -->
+              <div class="tags">
+                {categoriesTitles.map((c: any) => <Pill>{c}</Pill>)}
+              </div>
               <p class="description">{entry.description}</p>
             </div>
           </Hero>

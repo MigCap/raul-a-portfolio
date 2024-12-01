@@ -58,7 +58,7 @@ export function getRedirect(newLang: string, url: URL) {
   
   const newRoute = `${nl}${ns}${rp}`;
 
-  return newRoute ? newRoute + '/' : '' || `/${lang}/`;
+  return newRoute ? newRoute + '/' : `/${lang}/`;
 }
 
 export function getNavMenuLinksTranslated(url: URL) {

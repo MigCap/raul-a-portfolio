@@ -7,14 +7,18 @@ import Hero from '@/components/common/Hero.astro';
 import Grid from '@/components/common/Grid.astro';
 
 import { about } from '@/i18n/ui.i18n';
-import { getCurrentTranslatedSectionFromUrl, getLangFromUrl, useTranslations } from '@/i18n/utils.i18n';
-import { getWorks, getCategories } from '@/sanity/queries';
+import {
+  getCurrentTranslatedSectionFromUrl,
+  getLangFromUrl,
+  useTranslations,
+} from '@/i18n/utils.i18n';
+import { getWorks } from '@/sanity/queries';
+import Categories from '../common/Categories.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const works = await getWorks(lang);
-const categories = await getCategories(lang);
 const translatedSection = getCurrentTranslatedSectionFromUrl(Astro.url);
 ---
 
@@ -34,11 +38,7 @@ const translatedSection = getCurrentTranslatedSectionFromUrl(Astro.url);
           ))
         }
       </Grid>
-
-      <div>
-        <h4>{t('categories')}</h4>
-        {categories.map((category: any) => <p>{category.title}</p>)}
-      </div>
+      <Categories />
     </main>
     <ContactCTA />
   </div>
