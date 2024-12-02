@@ -5,14 +5,14 @@
 
 import { iconPaths } from '@/components/common/icons/IconPaths';
 
-export const LANGUAGES: Record<string, Languages> = {
+export const LANGUAGES = {
   EN: 'en',
   ES: 'es',
   FR: 'fr',
   IT: 'it'
-};
+} as const;
 
-export type Languages = 'en' | 'es' | 'fr' | 'it'
+export type Languages = typeof LANGUAGES[keyof typeof LANGUAGES];
 
 export const DEFAULT_LANG = LANGUAGES.EN;
 
@@ -86,7 +86,7 @@ export const ROUTES_IDS: RoutesIdsType = {
   },
   [LANGUAGES.FR]: {
     HOME: 'Accueil',
-    ABOUT: 'A Propos',
+    ABOUT: 'À Propos',
     CONTACT: 'Contact',
     WORK: 'Portfolio',
     PORTFOLIO: 'Portfolio',
