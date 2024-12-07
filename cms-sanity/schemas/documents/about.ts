@@ -5,58 +5,65 @@ import {getCodegenConfig} from '../objects/codegen/getCodegenConfig'
 export const ABOUT_PAGE_TITLE = 'About Page'
 
 export default defineType({
-  name: 'about',
-  title: 'About',
-  type: 'document',
+  name: "about",
+  title: "About",
+  type: "document",
   preview: {
     select: {
-      title: 'title',
+      title: "title",
     },
     prepare: (_: any) => {
       return {
         title: ABOUT_PAGE_TITLE,
-      }
+      };
     },
   },
   fields: [
     {
-      name: 'title',
-      type: 'internationalizedArrayString',
-      fieldset: 'title',
+      name: "title",
+      type: "internationalizedArrayString",
+      fieldset: "title",
       ...requiredAllLanguagesValidation,
       ...getCodegenConfig(),
     },
     {
-      name: 'description',
-      type: 'internationalizedArrayString',
-      fieldset: 'description',
+      name: "description",
+      type: "internationalizedArrayString",
+      fieldset: "description",
       ...requiredAllLanguagesValidation,
       ...getCodegenConfig(),
     },
     {
-      name: 'long_description',
-      type: 'internationalizedArrayText',
-      fieldset: 'description',
+      name: "long_description",
+      type: "internationalizedArrayText",
+      fieldset: "description",
       ...requiredAllLanguagesValidation,
       ...getCodegenConfig(),
     },
     {
-      name: 'background',
-      type: 'internationalizedArrayFormattedText',
-      fieldset: 'background',
+      name: "background",
+      type: "internationalizedArrayFormattedText",
+      fieldset: "background",
       ...requiredAllLanguagesValidation,
       ...getCodegenConfig(),
     },
     {
-      name: 'education',
-      type: 'internationalizedArrayFormattedText',
-      fieldset: 'education',
+      name: "education",
+      type: "internationalizedArrayFormattedText",
+      fieldset: "education",
       ...requiredAllLanguagesValidation,
       ...getCodegenConfig(),
     },
     {
-      name: 'imgUrl',
-      type: 'image',
+      name: "skills",
+      type: "internationalizedArrayFormattedText",
+      fieldset: "skills",
+      ...requiredAllLanguagesValidation,
+      ...getCodegenConfig(),
+    },
+    {
+      name: "imgUrl",
+      type: "image",
       options: {
         hotspot: true,
       },
@@ -66,36 +73,44 @@ export default defineType({
   ],
   fieldsets: [
     {
-      name: 'title',
+      name: "title",
       options: {
         collapsible: true,
         collapsed: true,
-        modal: {type: 'popover'},
+        modal: { type: "popover" },
       },
     },
     {
-      name: 'description',
+      name: "description",
       options: {
         collapsible: true,
         collapsed: true,
-        modal: {type: 'popover'},
+        modal: { type: "popover" },
       },
     },
     {
-      name: 'background',
+      name: "background",
       options: {
         collapsible: true,
         collapsed: true,
-        modal: {type: 'popover'},
+        modal: { type: "popover" },
       },
     },
     {
-      name: 'education',
+      name: "education",
       options: {
         collapsible: true,
         collapsed: true,
-        modal: {type: 'popover'},
+        modal: { type: "popover" },
+      },
+    },
+    {
+      name: "skills",
+      options: {
+        collapsible: true,
+        collapsed: true,
+        modal: { type: "popover" },
       },
     },
   ],
-})
+});

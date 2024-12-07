@@ -2,14 +2,15 @@ import {
   userInfo,
   home,
   about,
-  work,
-  category,
   experience,
   workExperience,
+  work,
+  testimonials,
   //   post,
   //   author,
+  category,
   blockContent,
-} from './documents'
+} from "./documents";
 import { ABOUT_PAGE_TITLE } from './documents/about'
 import { HOME_PAGE_TITLE } from './documents/home'
 import { USER_INFO_PAGE_TITLE } from './documents/userInfo'
@@ -22,10 +23,11 @@ const schemaTypes = [
   category,
   experience,
   workExperience,
+  testimonials,
   //   post,
   //   author,
   blockContent,
-]
+];
 
 export default schemaTypes;
 

@@ -4,41 +4,41 @@ import {requiredAllLanguagesValidation, requiredImgValidation} from '../objects/
 export const HOME_PAGE_TITLE = 'Home Page';
 
 export default defineType({
-  name: 'home',
-  title: 'Home',
-  type: 'document',
+  name: "home",
+  title: "Home",
+  type: "document",
   preview: {
     select: {
-      title: 'title',
+      title: "title",
     },
     prepare: (_: any) => {
       return {
-        title: HOME_PAGE_TITLE
-      }
+        title: HOME_PAGE_TITLE,
+      };
     },
   },
   fields: [
     {
-      name: 'title',
-      type: 'internationalizedArrayString',
-      fieldset: 'title',
+      name: "title",
+      type: "internationalizedArrayString",
+      fieldset: "title",
       ...requiredAllLanguagesValidation,
     },
     {
-      name: 'description',
-      type: 'internationalizedArrayString',
-      fieldset: 'description',
+      name: "description",
+      type: "internationalizedArrayString",
+      fieldset: "description",
       ...requiredAllLanguagesValidation,
     },
     {
-      name: 'long_description',
-      type: 'internationalizedArrayText',
-      fieldset: 'description',
+      name: "long_description",
+      type: "internationalizedArrayText",
+      fieldset: "description",
       ...requiredAllLanguagesValidation,
     },
     {
-      name: 'imgUrl',
-      type: 'image',
+      name: "imgUrl",
+      type: "image",
       options: {
         hotspot: true,
       },
@@ -47,20 +47,20 @@ export default defineType({
   ],
   fieldsets: [
     {
-      name: 'title',
+      name: "title",
       options: {
         collapsible: true,
-        collapsed: true,
-        modal: {type: 'popover'},
+        collapsed: false,
+        modal: { type: "popover" },
       },
     },
     {
-      name: 'description',
+      name: "description",
       options: {
         collapsible: true,
         collapsed: true,
-        modal: {type: 'popover'},
+        modal: { type: "popover" },
       },
-    }
+    },
   ],
-})
+});

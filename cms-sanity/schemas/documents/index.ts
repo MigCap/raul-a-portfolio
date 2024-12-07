@@ -8,7 +8,7 @@ export { default as experience } from './experience';
 export { default as home } from './home';
 export { default as post } from './post';
 export { default as skills } from './skills';
-export { default as testimonials } from './testimonials';
+export { default as testimonials } from "./testimonial";
 export { default as userInfo } from './userInfo';
 export { default as work } from './work';
 export { default as workExperience } from './workExperience';

@@ -16,7 +16,6 @@ import type {
   SanityImagePalette,
   SanityImagePaletteSwatch,
 } from "sanity-codegen";
-import { InternationalizedArrayString, InternationalizedArrayText, InternationalizedArrayFormattedText } from "./sanity-schema-internationalized";
 
 export type {
   SanityReference,
@@ -172,6 +171,13 @@ export interface About extends SanityDocument {
   education: InternationalizedArrayFormattedText;
 
   /**
+   * skills — `internationalizedArrayFormattedText`
+   *
+   *
+   */
+  skills: InternationalizedArrayFormattedText;
+
+  /**
    * imgUrl — `image`
    *
    *
@@ -267,7 +273,15 @@ export interface Works extends SanityDocument {
  *
  */
 export interface Categories extends SanityDocument {
+  _id: string;
   _type: "categories";
+
+  /**
+   * Slug — `slug`
+   *
+   *
+   */
+  slug?: { _type: "slug"; current: string };
 
   /**
    * title — `internationalizedArrayString`
@@ -330,6 +344,49 @@ export interface WorkExperience extends SanityDocument {
   desc?: string;
 }
 
+/**
+ * Testimonials
+ *
+ *
+ */
+export interface Testimonials extends SanityDocument {
+  _id: string;
+  _type: "testimonials";
+
+  /**
+   * Name — `string`
+   *
+   *
+   */
+  name?: string;
+
+  /**
+   * Company — `string`
+   *
+   *
+   */
+  company?: string;
+
+  /**
+   * ImgUrl — `image`
+   *
+   *
+   */
+  imgUrl: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * description — `internationalizedArrayText`
+   *
+   *
+   */
+  description?: InternationalizedArrayText;
+}
+
 export type BlockContent = Array<
   | SanityKeyed<SanityBlock>
   | SanityKeyed<{
@@ -347,4 +404,26 @@ export type Documents =
   | Works
   | Categories
   | Experiences
-  | WorkExperience;
+  | WorkExperience
+  | Testimonials;
+
+/**
+ * This interface is a stub. It was referenced in your sanity schema but
+ * the definition was not actually found. Future versions of
+ * sanity-codegen will let you type this explicity.
+ */
+type InternationalizedArrayString = any;
+
+/**
+ * This interface is a stub. It was referenced in your sanity schema but
+ * the definition was not actually found. Future versions of
+ * sanity-codegen will let you type this explicity.
+ */
+type InternationalizedArrayText = any;
+
+/**
+ * This interface is a stub. It was referenced in your sanity schema but
+ * the definition was not actually found. Future versions of
+ * sanity-codegen will let you type this explicity.
+ */
+type InternationalizedArrayFormattedText = any;

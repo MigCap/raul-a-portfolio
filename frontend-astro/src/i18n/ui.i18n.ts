@@ -4,17 +4,8 @@
 // import IconLinkedin from '@/components/icons/IconLinkedin.astro';
 
 import { iconPaths } from '@/components/common/icons/IconPaths';
-
-export const LANGUAGES: Record<string, Languages> = {
-  EN: 'en',
-  ES: 'es',
-};
-
-export type Languages = 'en' | 'es'
-
-export const DEFAULT_LANG = LANGUAGES.EN;
-
-export const locales = [LANGUAGES.EN, LANGUAGES.ES];
+import { LANGUAGES } from './config.i18n';
+import { routesTranslations } from './routes.i18n';
 
 export const DeviceSize = {
   mobile: 768,
@@ -24,87 +15,35 @@ export const DeviceSize = {
 };
 export const headerHeight = 100;
 
-export const socialIconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
-	{ label: 'Instagram', href: 'https://www.linkedin.com/in/rauldediegovazquez/', icon: 'instagram-logo' },
-	{ label: 'Linkedin', href: 'https://www.linkedin.com/in/rauldediegovazquez/', icon: 'linkedin-logo' },
+export const socialIconLinks: {
+  label: string;
+  href: string;
+  icon: keyof typeof iconPaths;
+}[] = [
+  {
+    label: 'Instagram',
+    href: 'https://www.linkedin.com/in/rauldediegovazquez/',
+    icon: 'instagram-logo',
+  },
+  {
+    label: 'Linkedin',
+    href: 'https://www.linkedin.com/in/rauldediegovazquez/',
+    icon: 'linkedin-logo',
+  },
 ];
 
 export const about = {
   name: 'Raúl de Diego',
-  fullName: 'Raul de Diego Vázquez',
+  fullName: 'Raúl de Diego Vázquez',
   image: '/assets/Foto1CVsm.png',
   mainMail: 'hello@rauldediego.com',
   contactMail: 'contact@rauldediego.com',
-  software: ['Photoshop'],
-  skills: [''],
-  hobbies: ['Fútbol', 'Ciclismo', 'Cine', 'Música'],
 };
-
-export type RouteTranslationsType = {
-  HOME: string;
-  ABOUT: string;
-  CONTACT: string;
-  WORK: string;
-  PORTFOLIO: string;
-  BLOG: string;
-  PRIVACY_POLICY: string;
-  [key: string]: string;
-};
-
-export type RoutesIdsType = Record<string, RouteTranslationsType>;
-// export type RoutesIdsType = keyof (typeof ROUTES_IDS)[typeof DEFAULT_LANG]
-
-export const ROUTES_IDS: RoutesIdsType = {
-  [LANGUAGES.EN]: {
-    HOME: 'Home',
-    ABOUT: 'About',
-    CONTACT: 'Contact',
-    WORK: 'Work',
-    PORTFOLIO: 'Portfolio',
-    BLOG: 'blog',
-    PRIVACY_POLICY: 'privacy-policy',
-  },
-  [LANGUAGES.ES]: {
-    HOME: 'Home',
-    ABOUT: 'Sobre',
-    CONTACT: 'Contacto',
-    WORK: 'Portfolio',
-    PORTFOLIO: 'Portfolio',
-    BLOG: 'blog',
-    PRIVACY_POLICY: 'privacy-policy',
-  }
-};
-
-export type RouteTranslationKey = keyof (typeof routesTranslations)[typeof DEFAULT_LANG]
-
-export const ROUTE_PREFIX = 'route.';
-
-export const routesTranslations = {
-  [LANGUAGES.EN]: Object.keys(ROUTES_IDS[LANGUAGES.EN]).reduce(
-    (acc, routeKey) => {
-      return {
-        ...acc,
-        [`${ROUTE_PREFIX}${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.EN][routeKey],
-      };
-    },
-    {},
-  ),
-  [LANGUAGES.ES]: Object.keys(ROUTES_IDS[LANGUAGES.ES]).reduce(
-    (acc, routeKey) => {
-      return {
-        ...acc,
-        [`${ROUTE_PREFIX}${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.ES][routeKey],
-      };
-    },
-    {},
-  ),
-};
-
-export type TranslationKey = keyof (typeof translations)[typeof DEFAULT_LANG]
 
 export const translations = {
   [LANGUAGES.EN]: {
     ...routesTranslations[LANGUAGES.EN],
+    ...about,
     'about.position': 'Graphic Designer and Illustrator',
     'about.position.description': 'Art Director',
     blog: 'Blog',
@@ -128,6 +67,7 @@ export const translations = {
   },
   [LANGUAGES.ES]: {
     ...routesTranslations[LANGUAGES.ES],
+    ...about,
     'about.position': 'Diseñador Gráfico e Ilustrador',
     'about.position.description': 'Artefinalista y Director de Arte',
     blog: 'Blog',
@@ -147,5 +87,52 @@ export const translations = {
     work: 'Portfolio',
     'work.title': 'Portfolio',
     'work.tagline': 'Echa un ojo a mis trabajos.',
+  },
+  [LANGUAGES.IT]: {
+    ...routesTranslations[LANGUAGES.IT],
+    ...about,
+    'about.position': 'Graphic Designer e Illustratore',
+    'about.position.description': 'Artefinalista e Direttore Artistico',
+    blog: 'Blog',
+    blogDescription: 'Descrizione del blog.',
+    categories: 'Categorie',
+    contact: 'Contatto',
+    contactMe: 'Contattami!',
+    email: 'Email',
+    en: 'en',
+    es: 'es',
+    letsTalk: 'Parliamone!',
+    message: 'Messaggio',
+    myServices: 'Servizi',
+    name: 'Nome',
+    niceToMeetYou: 'Piacere di conoscerti!',
+    send: 'Invia',
+    work: 'Portfolio',
+    'work.title': 'Portfolio',
+    'work.tagline': "Dai un'occhiata ai miei lavori.",
+  },
+  [LANGUAGES.FR]: {
+    ...routesTranslations[LANGUAGES.FR],
+    ...about,
+    'about.position': 'Graphiste et Illustrateur',
+    'about.position.description':
+      'Finaliseur artistique et Directeur artistique',
+    blog: 'Blog',
+    blogDescription: 'Description du blog.',
+    categories: 'Catégories',
+    contact: 'Contact',
+    contactMe: 'Contactez-moi !',
+    email: 'Email',
+    en: 'en',
+    es: 'es',
+    letsTalk: 'Discutons-en !',
+    message: 'Message',
+    myServices: 'Services',
+    name: 'Nom',
+    niceToMeetYou: 'Enchanté de faire votre connaissance !',
+    send: 'Envoyer',
+    work: 'Portfolio',
+    'work.title': 'Portfolio',
+    'work.tagline': 'Jetez un œil à mes travaux.',
   },
 };

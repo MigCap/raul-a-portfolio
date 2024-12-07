@@ -1,5 +1,6 @@
 ---
-import { about } from '@/i18n/ui.i18n';
+// import { about } from '@/i18n/ui.i18n';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils.i18n';
 import '@/styles/global.css';
 
 interface Props {
@@ -7,9 +8,11 @@ interface Props {
   description?: string | undefined;
 }
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const {
-  title = `${about.name} | Personal Site`,
-  description = `The personal site of ${about.name}`,
+  title = `${t('name')} | Personal Site`,
+  description = `The personal site of ${t('name')}`,
 } = Astro.props;
 ---
 

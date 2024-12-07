@@ -1,19 +1,17 @@
+import { translations } from '@/i18n/ui.i18n';
 import {
-  translations,
-  DEFAULT_LANG,
-  ROUTES_IDS,
-  LANGUAGES,
   type Languages,
   type TranslationKey,
-  ROUTE_PREFIX,
-} from '@/i18n/ui.i18n';
+  DEFAULT_LANG,
+  LANGUAGES,
+} from './config.i18n';
+import { ROUTE_PREFIX, ROUTES_IDS, routesTranslations } from './routes.i18n';
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
-  if (lang in translations) return lang as Languages;
+  if (lang in routesTranslations) return lang as Languages;
   return DEFAULT_LANG;
 }
-
 
 export function useTranslations(lang: Languages) {
   return function t(key: TranslationKey) {
@@ -35,7 +33,9 @@ export function getTranslatedRouteSection(
   newLang: string,
 ) {
   const routeIdsEntries = Object.entries(ROUTES_IDS[lang]);
-  const routeSection: any = routeIdsEntries.find(([_, value]: any) => value.toLowerCase() === section);
+  const routeSection: any = routeIdsEntries.find(
+    ([_, value]: any) => value.path === section,
+  );
   const newLangToLower = newLang.toLowerCase();
 
   return ROUTES_IDS[newLangToLower][routeSection?.[0]] || '';
@@ -49,29 +49,30 @@ export function getRedirect(newLang: string, url: URL) {
   const [_, __, section, ...rest] = pathname.split('/');
 
   const newLangToLower = newLang.toLowerCase();
-  const nextSectionToLower = getTranslatedRouteSection(section, lang, newLang).toLowerCase();
+  const nextSection = getTranslatedRouteSection(section, lang, newLang);
+  const nextSectionToLower = nextSection.path;
   const restPath = rest.length <= 0 ? '' : rest[0];
 
   const nl = newLangToLower ? '/' + newLangToLower : '';
   const ns = nextSectionToLower ? '/' + nextSectionToLower : '';
   const rp = restPath ? '/' + restPath : '';
-  
+
   const newRoute = `${nl}${ns}${rp}`;
 
-  return newRoute ? newRoute + '/' : '' || `/${lang}/`;
+  return newRoute ? newRoute + '/' : `/${lang}/`;
 }
 
 export function getNavMenuLinksTranslated(url: URL) {
-    const lang = getLangFromUrl(url);
+  const lang = getLangFromUrl(url);
 
   const home = ROUTES_IDS[lang].HOME;
   const work = ROUTES_IDS[lang].WORK;
   const about = ROUTES_IDS[lang].ABOUT;
 
   const links: { label: string; href: string }[] = [
-    { label: home, href: `/${lang}/` },
-    { label: work, href: `/${lang}/${work.toLowerCase()}/` },
-    { label: about, href: `/${lang}/${about.toLowerCase()}/` },
+    { label: home.name, href: `/${lang}/` },
+    { label: work.name, href: `/${lang}/${work.path}/` },
+    { label: about.name, href: `/${lang}/${about.path}/` },
   ];
 
   return links;
@@ -79,16 +80,18 @@ export function getNavMenuLinksTranslated(url: URL) {
 
 export function isActiveRoute(href: string, url: URL) {
   const lang = getLangFromUrl(url);
-  return url.pathname === href || (href !== `/${lang}/` && url.pathname.startsWith(href));
+  return (
+    url.pathname === href ||
+    (href !== `/${lang}/` && url.pathname.startsWith(href))
+  );
 }
 
 export function getWorksPatch(url: URL) {
   const lang = getLangFromUrl(url);
-  const worksPathToLower = (
+  const worksPathToLower =
     lang === LANGUAGES.EN
-      ? ROUTES_IDS[LANGUAGES.EN].WORK
-      : ROUTES_IDS[LANGUAGES.ES].WORK
-  ).toLowerCase();
+      ? ROUTES_IDS[LANGUAGES.EN].WORK.path
+      : ROUTES_IDS[LANGUAGES.ES].WORK.path;
 
   return `/${lang}/${worksPathToLower}/`;
 }
