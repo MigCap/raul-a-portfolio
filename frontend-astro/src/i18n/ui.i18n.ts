@@ -34,18 +34,16 @@ export const socialIconLinks: {
 
 export const about = {
   name: 'Raúl de Diego',
-  fullName: 'Raul de Diego Vázquez',
+  fullName: 'Raúl de Diego Vázquez',
   image: '/assets/Foto1CVsm.png',
   mainMail: 'hello@rauldediego.com',
   contactMail: 'contact@rauldediego.com',
-  software: ['Photoshop'],
-  skills: [''],
-  hobbies: ['Fútbol', 'Ciclismo', 'Cine', 'Música'],
 };
 
 export const translations = {
   [LANGUAGES.EN]: {
     ...routesTranslations[LANGUAGES.EN],
+    ...about,
     'about.position': 'Graphic Designer and Illustrator',
     'about.position.description': 'Art Director',
     blog: 'Blog',
@@ -69,6 +67,7 @@ export const translations = {
   },
   [LANGUAGES.ES]: {
     ...routesTranslations[LANGUAGES.ES],
+    ...about,
     'about.position': 'Diseñador Gráfico e Ilustrador',
     'about.position.description': 'Artefinalista y Director de Arte',
     blog: 'Blog',
@@ -91,6 +90,7 @@ export const translations = {
   },
   [LANGUAGES.IT]: {
     ...routesTranslations[LANGUAGES.IT],
+    ...about,
     'about.position': 'Graphic Designer e Illustratore',
     'about.position.description': 'Artefinalista e Direttore Artistico',
     blog: 'Blog',
@@ -113,6 +113,7 @@ export const translations = {
   },
   [LANGUAGES.FR]: {
     ...routesTranslations[LANGUAGES.FR],
+    ...about,
     'about.position': 'Graphiste et Illustrateur',
     'about.position.description':
       'Finaliseur artistique et Directeur artistique',

@@ -4,25 +4,22 @@ import BaseLayout from '@/components/layouts/BaseLayout.astro';
 import ContactCTA from '@/components/common/ContactCTA.astro';
 import Hero from '@/components/common/Hero.astro';
 import { getLangFromUrl } from '@/i18n/utils.i18n';
-import { about } from '@/i18n/ui.i18n';
 import { getAboutPage } from '@/sanity/queries';
+import { useTranslations } from '@/i18n/utils.i18n';
 
 const lang = getLangFromUrl(Astro.url);
 
 const aboutPage = await getAboutPage(lang);
+const t = useTranslations(lang);
 ---
 
 <BaseLayout
-  title={`About | ${about.name}`}
-  description={`About ${about.name} page`}
+  title={`About | ${t('name')}`}
+  description={`About ${t('name')} page`}
 >
   <div class="stack gap-20">
     <main class="wrapper about">
-      <Hero
-        title={aboutPage.title}
-        tagline={aboutPage.description}
-        subTagline={aboutPage.long_description}
-      >
+      <Hero title={aboutPage.title} tagline={aboutPage.description}>
         <img
           width="1553"
           height="873"

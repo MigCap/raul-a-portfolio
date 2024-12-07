@@ -17,14 +17,17 @@ import ContactCTA from '@/components/common/ContactCTA.astro';
 import Skills from '@/components/common/Skills.astro';
 
 // Utils
-import { getLangFromUrl, getWorksPatch } from '@/i18n/utils.i18n';
-import { about } from '@/i18n/ui.i18n';
+import {
+  getLangFromUrl,
+  getWorksPatch,
+  useTranslations,
+} from '@/i18n/utils.i18n';
 import { getHomePage, getMostRecentWorks } from '@/sanity/queries';
 import Testimonials from '../common/testimonials/Testimonials.astro';
 
 const { url } = Astro;
 const lang = getLangFromUrl(Astro.url);
-// const t = useTranslations(lang);
+const t = useTranslations(lang);
 
 const mostRecentWorks = await getMostRecentWorks(lang);
 const home = await getHomePage(lang);
@@ -43,7 +46,7 @@ const home = await getHomePage(lang);
         </Hero>
 
         <img
-          alt={`${about.name} smiling in a black plaid shirt`}
+          alt={`${t('name')} smiling in a black plaid shirt`}
           width="480"
           height="620"
           src={home.img}

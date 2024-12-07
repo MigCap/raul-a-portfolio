@@ -5,11 +5,11 @@ import {
   DEFAULT_LANG,
   LANGUAGES,
 } from './config.i18n';
-import { ROUTE_PREFIX, ROUTES_IDS } from './routes.i18n';
+import { ROUTE_PREFIX, ROUTES_IDS, routesTranslations } from './routes.i18n';
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
-  if (lang in translations) return lang as Languages;
+  if (lang in routesTranslations) return lang as Languages;
   return DEFAULT_LANG;
 }
 
