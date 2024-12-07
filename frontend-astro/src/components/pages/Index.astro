@@ -20,6 +20,7 @@ import Skills from '@/components/common/Skills.astro';
 import { getLangFromUrl, getWorksPatch } from '@/i18n/utils.i18n';
 import { about } from '@/i18n/ui.i18n';
 import { getHomePage, getMostRecentWorks } from '@/sanity/queries';
+import Testimonials from '../common/testimonials/Testimonials.astro';
 
 const { url } = Astro;
 const lang = getLangFromUrl(Astro.url);
@@ -33,11 +34,7 @@ const home = await getHomePage(lang);
   <div class="stack gap-20 lg:gap-48">
     <div class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">
-        <Hero
-          title={home.title}
-          tagline={home.description}
-          align="start"
-        >
+        <Hero title={home.title} tagline={home.description} align="start">
           <!-- <div class="roles">
             <Pill><Icon icon="code" size="1.33em" /> Designer</Pill>
             <Pill><Icon icon="microphone-stage" size="1.33em" /> Painter</Pill>
@@ -49,7 +46,8 @@ const home = await getHomePage(lang);
           alt={`${about.name} smiling in a black plaid shirt`}
           width="480"
           height="620"
-          src={home.img} alt={home.img_alt || ''}
+          src={home.img}
+          alt={home.img_alt || ''}
           loading="lazy"
         />
       </header>
@@ -87,7 +85,9 @@ const home = await getHomePage(lang);
         </div>
       </section>
 
-      <section class="section with-background bg-variant">
+      <Testimonials />
+
+      <!-- <section class="section with-background bg-variant">
         <header class="section-header stack gap-2 lg:gap-4">
           <h3>Mentions</h3>
           <p>
@@ -99,21 +99,17 @@ const home = await getHomePage(lang);
         <div class="gallery">
           <Grid variant="small">
             {
-              [
-                'Medium',
-                'BuzzFeed',
-                'The Next Web',
-                'awwwards.',
-                'TechCrunch',
-              ].map((brand) => (
-                <li class="mention-card">
-                  <p>{brand}</p>
-                </li>
-              ))
+              ['Medium', 'BuzzFeed', 'The Next Web', 'Award', 'TechCrunch'].map(
+                (brand) => (
+                  <li class="mention-card">
+                    <p>{brand}</p>
+                  </li>
+                ),
+              )
             }
           </Grid>
         </div>
-      </section>
+      </section> -->
     </main>
 
     <ContactCTA />

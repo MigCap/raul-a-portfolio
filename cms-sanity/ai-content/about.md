@@ -1,83 +1,148 @@
-# Graphic Designer Profile
+# About Me  
+(English)
 
-## Title: Creative Visionary - Graphic Designer and Illustrator
+# Sobre Mí  
+(Spanish)
 
-### English
+# À Propos de Moi  
+(French)
 
-**Description**  
-A passionate Graphic Designer and Illustrator dedicated to transforming ideas into visually stunning realities. With a flair for crafting compelling visuals, I specialize in creating designs that resonate, inspire, and captivate. Whether it's a bold branding project, intricate illustrations, or sleek digital assets, my work seamlessly blends creativity with purpose.
-
-My designs are more than just visuals—they are strategic solutions aimed at amplifying brands and connecting audiences. I strive to create an emotional impact, ensuring every project leaves a lasting impression.
-
-**Background**  
-With over [X] years of experience in the creative industry, I have honed my expertise by collaborating with diverse clients ranging from startups to established brands. My journey began with a passion for art and storytelling, eventually evolving into a career where design became my medium for expression.
-
-Through hands-on projects and continual learning, I have mastered tools like Adobe Creative Suite, Figma, and Procreate. Each project represents a step in my ongoing pursuit of design excellence, ensuring I stay at the forefront of trends and innovation.
-
-**Education**  
-I hold a degree in Graphic Design from [Your University/Institution], where I cultivated my foundational skills and a deep appreciation for the art of visual communication. During my studies, I focused on subjects like typography, branding, and digital media, which continue to influence my creative approach today.
-
-Beyond formal education, I am a lifelong learner, always seeking opportunities to grow. I have completed certifications in advanced illustration techniques and UI/UX design, reflecting my commitment to staying versatile and adaptive in the fast-evolving design landscape.
+# Su di Me  
+(Italian)
 
 ---
 
-### Spanish
+## Short Description  
 
-**Título**: Visionario Creativo - Diseñador Gráfico e Ilustrador  
+### (English)  
+**Designing Stories, Shaping Brands, Inspiring Creativity**  
+**Thanks for stopping by. Read below to learn more about myself and my background**  
+As a passionate graphic designer with over a decade of experience, I specialize in crafting visually compelling designs that tell stories, foster connections, and amplify brand identities. My journey in design has been fueled by a love for aesthetics, innovation, and the impact of visual storytelling on human emotions. From creating intricate digital illustrations to building cohesive branding strategies, I merge creativity with functionality to bring ideas to life. My work spans diverse industries, reflecting a versatile and adaptive design philosophy that ensures each project resonates deeply with its target audience.
 
-**Descripción**  
-Un apasionado Diseñador Gráfico e Ilustrador dedicado a transformar ideas en realidades visualmente impactantes. Con un talento especial para crear visuales cautivadores, me especializo en diseños que resuenan, inspiran y capturan la atención. Ya sea un proyecto audaz de branding, ilustraciones intrincadas o activos digitales elegantes, mi trabajo combina creatividad y propósito.
+### (Spanish)  
+**Diseñar Historias, Crear Marcas, Inspirar Creatividad** 
+**Gracias por pasarte. Lee a continuación para saber más sobre mí y mi trayectoria** 
+ 
+Como diseñador gráfico apasionado con más de una década de experiencia, me especializo en crear diseños visualmente atractivos que cuentan historias, fomentan conexiones y amplifican identidades de marca. Mi trayectoria en el diseño ha sido impulsada por un amor por la estética, la innovación y el impacto del storytelling visual en las emociones humanas. Desde la creación de intrincadas ilustraciones digitales hasta el desarrollo de estrategias de marca cohesivas, combino creatividad con funcionalidad para dar vida a las ideas. Mi trabajo abarca diversas industrias, reflejando una filosofía de diseño versátil y adaptable que asegura que cada proyecto resuene profundamente con su audiencia.
 
-Mis diseños van más allá de lo visual: son soluciones estratégicas pensadas para amplificar marcas y conectar con el público. Me esfuerzo por generar un impacto emocional, asegurándome de que cada proyecto deje una impresión duradera.
+### (French)  
+**Concevoir des Histoires, Façonner des Marques, Inspirer la Créativité**  
+**Merci de votre visite. Lisez ci-dessous pour en savoir plus sur moi et sur mon parcours**  
+En tant que designer graphique passionné avec plus de dix ans d’expérience, je me spécialise dans la création de designs visuellement captivants qui racontent des histoires, favorisent les connexions et amplifient les identités de marque. Mon parcours dans le design a été nourri par un amour pour l’esthétique, l’innovation et l’impact du storytelling visuel sur les émotions humaines. De la création d’illustrations numériques complexes à l’élaboration de stratégies de branding cohérentes, je fusionne créativité et fonctionnalité pour donner vie aux idées. Mon travail couvre divers secteurs, reflétant une philosophie de design polyvalente et adaptative qui garantit que chaque projet résonne profondément avec son public.
 
-**Antecedentes**  
-Con más de [X] años de experiencia en la industria creativa, he perfeccionado mi experiencia colaborando con clientes diversos, desde startups hasta marcas consolidadas. Mi viaje comenzó con una pasión por el arte y la narración, evolucionando hacia una carrera donde el diseño se convirtió en mi medio de expresión.
-
-A través de proyectos prácticos y aprendizaje continuo, he dominado herramientas como Adobe Creative Suite, Figma y Procreate. Cada proyecto representa un paso en mi búsqueda constante por la excelencia en el diseño, asegurándome de mantenerme a la vanguardia de las tendencias e innovaciones.
-
-**Educación**  
-Tengo un título en Diseño Gráfico de [Tu Universidad/Institución], donde desarrollé mis habilidades fundamentales y una profunda apreciación por el arte de la comunicación visual. Durante mis estudios, me enfoqué en temas como tipografía, branding y medios digitales, los cuales continúan influyendo en mi enfoque creativo.
-
-Más allá de la educación formal, soy un aprendiz constante, siempre buscando oportunidades para crecer. He completado certificaciones en técnicas avanzadas de ilustración y diseño UI/UX, reflejando mi compromiso de ser versátil y adaptarme en el dinámico mundo del diseño.
-
----
-
-### Italian
-
-**Titolo**: Visionario Creativo - Graphic Designer e Illustratore  
-
-**Descrizione**  
-Un Graphic Designer e Illustratore appassionato, dedicato a trasformare le idee in realtà visivamente straordinarie. Con un talento innato per creare immagini accattivanti, sono specializzato in design che risuonano, ispirano e catturano l’attenzione. Che si tratti di un progetto audace di branding, illustrazioni complesse o contenuti digitali eleganti, il mio lavoro unisce creatività e scopo.
-
-I miei design non sono solo immagini: sono soluzioni strategiche pensate per amplificare i brand e connettersi con il pubblico. Mi impegno a creare un impatto emozionale, assicurandomi che ogni progetto lasci un’impressione duratura.
-
-**Esperienza**  
-Con oltre [X] anni di esperienza nell'industria creativa, ho affinato le mie competenze collaborando con clienti diversi, dalle startup ai marchi affermati. Il mio percorso è iniziato con una passione per l'arte e la narrazione, evolvendo in una carriera in cui il design è diventato il mio mezzo di espressione.
-
-Attraverso progetti pratici e un apprendimento continuo, ho padroneggiato strumenti come Adobe Creative Suite, Figma e Procreate. Ogni progetto rappresenta un passo nella mia continua ricerca dell’eccellenza nel design, assicurandomi di rimanere all’avanguardia delle tendenze e dell'innovazione.
-
-**Formazione**  
-Ho conseguito una laurea in Graphic Design presso [La tua Università/Istituto], dove ho sviluppato le mie competenze fondamentali e una profonda comprensione dell'arte della comunicazione visiva. Durante i miei studi, mi sono concentrato su argomenti come tipografia, branding e media digitali, che continuano a influenzare il mio approccio creativo.
-
-Oltre alla formazione formale, sono un eterno studente, sempre alla ricerca di opportunità per crescere. Ho completato certificazioni in tecniche avanzate di illustrazione e design UI/UX, riflettendo il mio impegno ad essere versatile e adattarmi al panorama del design in continua evoluzione.
+### (Italian)  
+**Progettare Storie, Creare Brand, Ispirare Creatività**  
+**Grazie per esserti fermato. Leggi di seguito per saperne di più su di me e sul mio background**  
+Come graphic designer appassionato con oltre un decennio di esperienza, mi specializzo nella creazione di design visivamente coinvolgenti che raccontano storie, favoriscono connessioni e amplificano le identità di marca. Il mio percorso nel design è stato alimentato dall'amore per l'estetica, l'innovazione e l'impatto della narrazione visiva sulle emozioni umane. Dalla creazione di illustrazioni digitali dettagliate alla costruzione di strategie di branding coerenti, unisco creatività e funzionalità per dare vita alle idee. Il mio lavoro abbraccia settori diversi, riflettendo una filosofia progettuale versatile e adattiva che garantisce che ogni progetto risuoni profondamente con il suo pubblico.
 
 ---
 
-### French
+## Background  
 
-**Titre**: Visionnaire Créatif - Graphiste et Illustrateur  
+### (English)  
+Growing up surrounded by vibrant art and architecture in Barcelona, I was inspired to pursue a career that combined creativity with communication. My early exposure to design software, coupled with a natural talent for drawing, propelled me toward graphic design. Over the years, I've collaborated with international clients, contributing to projects that range from small business branding to large-scale digital campaigns. My philosophy is simple: design should not only be beautiful but also meaningful and impactful. I take pride in understanding my clients' stories and translating them into visuals that resonate with their audiences.
 
-**Description**  
-Un Graphiste et Illustrateur passionné, dédié à transformer les idées en réalités visuelles saisissantes. Avec un talent pour créer des visuels captivants, je me spécialise dans des designs qui résonnent, inspirent et captivent. Qu'il s'agisse d'un projet de branding audacieux, d'illustrations complexes ou de supports numériques élégants, mon travail allie créativité et intention.
+### (Spanish)  
+Crecí rodeado de arte vibrante y arquitectura en Barcelona, lo que me inspiró a seguir una carrera que combinara creatividad y comunicación. Mi temprana exposición a los programas de diseño, junto con un talento natural para el dibujo, me impulsaron hacia el diseño gráfico. A lo largo de los años, he colaborado con clientes internacionales, contribuyendo a proyectos que van desde el branding para pequeñas empresas hasta campañas digitales a gran escala. Mi filosofía es simple: el diseño no solo debe ser bello, sino también significativo e impactante. Me enorgullece entender las historias de mis clientes y traducirlas en visuales que resuenen con su audiencia.
 
-Mes designs vont au-delà du visuel : ce sont des solutions stratégiques conçues pour amplifier les marques et connecter les publics. Je m'efforce de créer un impact émotionnel, en veillant à ce que chaque projet laisse une impression durable.
+### (French)  
+Grandissant entouré d'art vibrant et d'architecture à Barcelone, j'ai été inspiré à poursuivre une carrière qui alliait créativité et communication. Ma première exposition aux logiciels de design, couplée à un talent naturel pour le dessin, m'a conduit vers le design graphique. Au fil des années, j'ai collaboré avec des clients internationaux, contribuant à des projets allant du branding pour petites entreprises à des campagnes numériques à grande échelle. Ma philosophie est simple : le design ne doit pas seulement être beau, mais aussi significatif et impactant. Je suis fier de comprendre les histoires de mes clients et de les traduire en visuels qui résonnent avec leur public.
 
-**Parcours**  
-Avec plus de [X] années d'expérience dans le secteur créatif, j'ai perfectionné mon expertise en collaborant avec des clients variés, des startups aux grandes marques. Mon parcours a commencé avec une passion pour l'art et le storytelling, évoluant vers une carrière où le design est devenu mon moyen d'expression.
+### (Italian)  
+Cresciuto circondato da arte vibrante e architettura a Barcellona, sono stato ispirato a intraprendere una carriera che combinasse creatività e comunicazione. La mia prima esposizione ai software di design, unita a un talento naturale per il disegno, mi ha spinto verso il graphic design. Negli anni, ho collaborato con clienti internazionali, contribuendo a progetti che vanno dal branding per piccole imprese a campagne digitali su larga scala. La mia filosofia è semplice: il design non dovrebbe essere solo bello, ma anche significativo e impattante. Sono orgoglioso di comprendere le storie dei miei clienti e tradurle in visual che risuonano con il loro pubblico.
 
-Grâce à des projets pratiques et un apprentissage continu, j'ai maîtrisé des outils comme Adobe Creative Suite, Figma et Procreate. Chaque projet représente une étape dans ma quête constante d'excellence en design, me garantissant de rester à la pointe des tendances et de l'innovation.
+---
 
-**Éducation**  
-Je suis titulaire d'un diplôme en Design Graphique de [Votre Université/Institution], où j'ai développé mes compétences fondamentales et une grande appréciation pour l'art de la communication visuelle. Pendant mes études, je me suis concentré sur des sujets tels que la typographie, le branding et les médias numériques, qui continuent d'influencer mon approche créative.
+## Education
 
-Au-delà de l'éducation formelle, je suis un apprenant perpétuel, toujours à la recherche d'opportunités pour grandir. J'ai obtenu des certifications en techniques avancées d'illustration et en design UI/UX, reflétant mon engagement à rester polyvalent et adaptable dans le paysage en constante évolution du design.
+### (English)  
+1. **Politecnico di Milano (Milan, Italy)**  
+   Short Program in Advanced Visual Design  
+   Learned cutting-edge approaches to visual storytelling.
+
+2. **Universidad Complutense de Madrid (Madrid, Spain)**  
+   Certification in Digital Graphic Arts  
+   Gained expertise in contemporary graphic tools and techniques.
+
+3. **Instituto Europeo di Design (Barcelona, Spain)**  
+   Diploma in Graphic Design Principles  
+   Built a strong foundation in design aesthetics and industry trends.
+
+### (Spanish)  
+1. **Politecnico di Milano (Milán, Italia)**  
+   Curso Breve en Diseño Visual Avanzado  
+   Aprendí enfoques innovadores para el storytelling visual.
+
+2. **Universidad Complutense de Madrid (Madrid, España)**  
+   Certificación en Artes Gráficas Digitales  
+   Adquirí experiencia en herramientas y técnicas gráficas contemporáneas.
+
+3. **Instituto Europeo di Design (Barcelona, España)**  
+   Diploma en Principios de Diseño Gráfico  
+   Construí una sólida base en estética del diseño y tendencias de la industria.
+
+### (French)  
+1. **Politecnico di Milano (Milan, Italie)**  
+   Programme Court en Design Visuel Avancé  
+   J'ai appris des approches novatrices pour le storytelling visuel.
+
+2. **Universidad Complutense de Madrid (Madrid, Espagne)**  
+   Certification en Arts Graphiques Numériques  
+   Acquis une expertise dans les outils et techniques graphiques contemporains.
+
+3. **Instituto Europeo di Design (Barcelone, Espagne)**  
+   Diplôme en Principes du Design Graphique  
+   Établi une base solide en esthétique du design et tendances de l'industrie.
+
+### (Italian)  
+1. **Politecnico di Milano (Milano, Italia)**  
+   Programma Breve in Design Visivo Avanzato  
+   Appreso approcci innovativi alla narrazione visiva.
+
+2. **Universidad Complutense de Madrid (Madrid, Spagna)**  
+   Certificazione in Arti Grafiche Digitali  
+   Acquisito competenze in strumenti e tecniche grafiche contemporanee.
+
+3. **Instituto Europeo di Design (Barcellona, Spagna)**  
+   Diploma in Principi di Design Grafico  
+   Costruita una solida base in estetica del design e tendenze del settore.
+
+---
+
+## Skills  
+
+### (English)  
+- **Branding and Identity Design:** Mastering logo design, typography, and cohesive visual narratives.  
+- **Digital Illustration:** Crafting unique illustrations tailored to client needs and audiences.  
+- **UI/UX Design:** Designing intuitive interfaces with a user-centered approach.  
+- **Typography:** Utilizing font pairing and custom typography to enhance design impact.  
+- **Motion Graphics:** Adding dynamism to visuals through animation and transitions.  
+- **Print Design:** Creating compelling layouts for brochures, posters, and editorial projects.  
+- **Adobe Creative Suite Expertise:** Proficient in Photoshop, Illustrator, InDesign, After Effects, and XD.  
+
+### (Spanish)  
+- **Diseño de Marca e Identidad:** Dominio en diseño de logotipos, tipografía y narrativas visuales cohesivas.  
+- **Ilustración Digital:** Creación de ilustraciones únicas adaptadas a las necesidades y audiencias de los clientes.  
+- **Diseño UI/UX:** Diseño de interfaces intuitivas con un enfoque centrado en el usuario.  
+- **Tipografía:** Uso de combinación de fuentes y tipografía personalizada para mejorar el impacto del diseño.  
+- **Gráficos en Movimiento:** Añadiendo dinamismo a los visuales mediante animación y transiciones.  
+- **Diseño Impreso:** Creación de diseños atractivos para folletos, carteles y proyectos editoriales.  
+- **Experiencia en Adobe Creative Suite:** Dominio de Photoshop, Illustrator, InDesign, After Effects y XD.  
+
+### (French)  
+- **Conception d'Identité et de Marque:** Maîtrise de la conception de logos, typographie et récits visuels cohérents.  
+- **Illustration Numérique:** Création d'illustrations uniques adaptées aux besoins et au public des clients.  
+- **Conception UI/UX:** Conception d'interfaces intuitives avec une approche centrée sur l'utilisateur.  
+- **Typographie:** Utilisation d'associations de polices et typographies sur mesure pour renforcer l'impact visuel.  
+- **Graphiques Animés:** Ajout de dynamisme aux visuels grâce à des animations et des transitions.  
+- **Conception Imprimée:** Création de mises en page convaincantes pour brochures, affiches et projets éditoriaux.  
+- **Maîtrise d'Adobe Creative Suite:** Expertise en Photoshop, Illustrator, InDesign, After Effects et XD.  
+
+### (Italian)  
+- **Progettazione di Brand e Identità:** Maestria nella progettazione di loghi, tipografia e narrazioni visive coerenti.  
+- **Illustrazione Digitale:** Creazione di illustrazioni uniche adattate alle esigenze dei clienti e del pubblico.  
+- **Progettazione UI/UX:** Design di interfacce intuitive con un approccio centrato sull'utente.  
+- **Tipografia:** Utilizzo di combinazioni di caratteri e tipografia personalizzata per migliorare l'impatto del design.  
+- **Grafica in Movimento:** Aggiunta di dinamismo ai visual attraverso animazioni e transizioni.  
+- **Design Stampato:** Creazione di layout accattivanti per brochure, poster e progetti editoriali.  
+- **Esperienza nella Suite Adobe Creative:** Esperto in Photoshop, Illustrator, InDesign, After Effects e XD.  

@@ -20,4 +20,12 @@ export default defineConfig({
   // output: 'hybrid',
   // output: 'server',
   // adapter: vercel(),
+  // i18n: {
+  //   defaultLocale: "en",
+  //   locales: ["en", "fr", "pt-br", "es"],
+  //   fallback: {
+  //     pt: "es",
+  //     fr: "en"
+  //   }
+  // }
 });

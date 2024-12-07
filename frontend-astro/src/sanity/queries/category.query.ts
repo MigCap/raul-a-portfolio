@@ -29,12 +29,17 @@ export function getWorkCategoriesQuery(workId: string, categoryKeys: string[]) {
 export async function getWorkCategoriesTitles(work: any, lang: string) {
   const workId = work._id;
   const categoryKeys = work.categories.map((item: any) => item._key);
-  
-  const fetchedWorkCategories = await useSanityClient().fetch<Array<Schema.Categories>>(getWorkCategoriesQuery(workId, categoryKeys));
+
+  const fetchedWorkCategories = await useSanityClient().fetch<
+    Array<Schema.Categories>
+  >(getWorkCategoriesQuery(workId, categoryKeys));
 
   const workCategories = fetchedWorkCategories.map((c) => {
-    return c.title?.length && c.title.find((t) => t._key === lang)?.value
-  })
+    return (
+      c.title?.length &&
+      c.title.find((t: { _key: string }) => t._key === lang)?.value
+    );
+  });
 
   return workCategories;
 }

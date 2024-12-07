@@ -1,5 +1,5 @@
 ---
-import { PortableText } from "astro-portabletext";
+import { PortableText } from 'astro-portabletext';
 import BaseLayout from '@/components/layouts/BaseLayout.astro';
 import ContactCTA from '@/components/common/ContactCTA.astro';
 import Hero from '@/components/common/Hero.astro';
@@ -12,10 +12,17 @@ const lang = getLangFromUrl(Astro.url);
 const aboutPage = await getAboutPage(lang);
 ---
 
-<BaseLayout title={`About | ${about.name}`} description={`About ${about.name} page`}>
+<BaseLayout
+  title={`About | ${about.name}`}
+  description={`About ${about.name} page`}
+>
   <div class="stack gap-20">
     <main class="wrapper about">
-      <Hero title={aboutPage.title} tagline={aboutPage.description}>
+      <Hero
+        title={aboutPage.title}
+        tagline={aboutPage.description}
+        subTagline={aboutPage.long_description}
+      >
         <img
           width="1553"
           height="873"
@@ -27,23 +34,19 @@ const aboutPage = await getAboutPage(lang);
       <section>
         <h2 class="section-title">Background</h2>
         <div class="content">
-          <PortableText
-            value={aboutPage.background}
-          />
+          <PortableText value={aboutPage.background} />
         </div>
       </section>
       <section>
         <h2 class="section-title">Education</h2>
         <div class="content">
-          <PortableText
-            value={aboutPage.education}
-          />
+          <PortableText value={aboutPage.education} />
         </div>
       </section>
       <section>
         <h2 class="section-title">Skills</h2>
         <div class="content">
-          <p>officia unde omnis</p>
+          <PortableText value={aboutPage.skills} />
         </div>
       </section>
     </main>

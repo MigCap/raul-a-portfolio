@@ -4,11 +4,15 @@ import type { PortableTextBlock } from 'sanity';
 
 function getFieldValueByLang(lang: string, field: any): string {
   return (
-    (field.length && field.find((e: any) => e['_key'] === lang).value) || field as unknown as string
+    (field.length && field.find((e: any) => e['_key'] === lang).value) ||
+    (field as unknown as string)
   );
 }
 
-function getPortableTextFieldValueByLang(lang: string, field: any): PortableTextBlock {
+function getPortableTextFieldValueByLang(
+  lang: string,
+  field: any,
+): PortableTextBlock {
   return getFieldValueByLang(lang, field) as unknown as PortableTextBlock;
 }
 
@@ -56,7 +60,7 @@ export function mapCategoriesByLang(categories: any) {
       ...category,
       id: category._id,
       title: category.title[0],
-      slug: category.slug.current
+      slug: category.slug.current,
     };
   });
 }
@@ -79,6 +83,22 @@ export function mapAboutPage(about: Schema.About, lang: string) {
     long_description: getFieldValueByLang(lang, about.long_description),
     background: getPortableTextFieldValueByLang(lang, about.background),
     education: getPortableTextFieldValueByLang(lang, about.education),
+    skills: getPortableTextFieldValueByLang(lang, about.skills),
     img: urlForImage(about.imgUrl.asset),
   };
+}
+
+export function mapTestimonials(
+  testimonials: Schema.Testimonials[],
+  lang: string,
+) {
+  return testimonials.map((testimonial) => {
+    return {
+      ...testimonial,
+      id: testimonial._id,
+      name: testimonial.name,
+      description: getFieldValueByLang(lang, testimonial.description),
+      img: urlForImage(testimonial.imgUrl.asset),
+    };
+  });
 }

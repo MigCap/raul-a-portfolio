@@ -4,19 +4,8 @@
 // import IconLinkedin from '@/components/icons/IconLinkedin.astro';
 
 import { iconPaths } from '@/components/common/icons/IconPaths';
-
-export const LANGUAGES = {
-  EN: 'en',
-  ES: 'es',
-  FR: 'fr',
-  IT: 'it'
-} as const;
-
-export type Languages = typeof LANGUAGES[keyof typeof LANGUAGES];
-
-export const DEFAULT_LANG = LANGUAGES.EN;
-
-export const locales = [LANGUAGES.EN, LANGUAGES.ES];
+import { LANGUAGES } from './config.i18n';
+import { routesTranslations } from './routes.i18n';
 
 export const DeviceSize = {
   mobile: 768,
@@ -26,9 +15,21 @@ export const DeviceSize = {
 };
 export const headerHeight = 100;
 
-export const socialIconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
-	{ label: 'Instagram', href: 'https://www.linkedin.com/in/rauldediegovazquez/', icon: 'instagram-logo' },
-	{ label: 'Linkedin', href: 'https://www.linkedin.com/in/rauldediegovazquez/', icon: 'linkedin-logo' },
+export const socialIconLinks: {
+  label: string;
+  href: string;
+  icon: keyof typeof iconPaths;
+}[] = [
+  {
+    label: 'Instagram',
+    href: 'https://www.linkedin.com/in/rauldediegovazquez/',
+    icon: 'instagram-logo',
+  },
+  {
+    label: 'Linkedin',
+    href: 'https://www.linkedin.com/in/rauldediegovazquez/',
+    icon: 'linkedin-logo',
+  },
 ];
 
 export const about = {
@@ -41,104 +42,6 @@ export const about = {
   skills: [''],
   hobbies: ['Fútbol', 'Ciclismo', 'Cine', 'Música'],
 };
-
-export type RouteTranslationsType = {
-  HOME: string;
-  ABOUT: string;
-  CONTACT: string;
-  WORK: string;
-  PORTFOLIO: string;
-  BLOG: string;
-  PRIVACY_POLICY: string;
-  [key: string]: string;
-};
-
-export type RoutesIdsType = Record<string, RouteTranslationsType>;
-// export type RoutesIdsType = keyof (typeof ROUTES_IDS)[typeof DEFAULT_LANG]
-
-export const ROUTES_IDS: RoutesIdsType = {
-  [LANGUAGES.EN]: {
-    HOME: 'Home',
-    ABOUT: 'About',
-    CONTACT: 'Contact',
-    WORK: 'Work',
-    PORTFOLIO: 'Portfolio',
-    BLOG: 'blog',
-    PRIVACY_POLICY: 'privacy-policy',
-  },
-  [LANGUAGES.ES]: {
-    HOME: 'Home',
-    ABOUT: 'Sobre',
-    CONTACT: 'Contacto',
-    WORK: 'Portfolio',
-    PORTFOLIO: 'Portfolio',
-    BLOG: 'blog',
-    PRIVACY_POLICY: 'privacy-policy',
-  },
-  [LANGUAGES.IT]: {
-    HOME: 'Home',
-    ABOUT: 'Chi Siamo',
-    CONTACT: 'Contatto',
-    WORK: 'Portfolio',
-    PORTFOLIO: 'Portfolio',
-    BLOG: 'Blog',
-    PRIVACY_POLICY: 'privacy-policy',
-  },
-  [LANGUAGES.FR]: {
-    HOME: 'Accueil',
-    ABOUT: 'À Propos',
-    CONTACT: 'Contact',
-    WORK: 'Portfolio',
-    PORTFOLIO: 'Portfolio',
-    BLOG: 'Blog',
-    PRIVACY_POLICY: 'politique-de-confidentialité',
-  },
-};
-
-export type RouteTranslationKey = keyof (typeof routesTranslations)[typeof DEFAULT_LANG]
-
-export const ROUTE_PREFIX = 'route.';
-
-export const routesTranslations = {
-  [LANGUAGES.EN]: Object.keys(ROUTES_IDS[LANGUAGES.EN]).reduce(
-    (acc, routeKey) => {
-      return {
-        ...acc,
-        [`${ROUTE_PREFIX}${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.EN][routeKey],
-      };
-    },
-    {},
-  ),
-  [LANGUAGES.ES]: Object.keys(ROUTES_IDS[LANGUAGES.ES]).reduce(
-    (acc, routeKey) => {
-      return {
-        ...acc,
-        [`${ROUTE_PREFIX}${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.ES][routeKey],
-      };
-    },
-    {},
-  ),
-  [LANGUAGES.IT]: Object.keys(ROUTES_IDS[LANGUAGES.IT]).reduce(
-    (acc, routeKey) => {
-      return {
-        ...acc,
-        [`${ROUTE_PREFIX}${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.IT][routeKey],
-      };
-    },
-    {},
-  ),
-  [LANGUAGES.FR]: Object.keys(ROUTES_IDS[LANGUAGES.FR]).reduce(
-    (acc, routeKey) => {
-      return {
-        ...acc,
-        [`${ROUTE_PREFIX}${routeKey.toLowerCase()}`]: ROUTES_IDS[LANGUAGES.FR][routeKey],
-      };
-    },
-    {},
-  )
-};
-
-export type TranslationKey = keyof (typeof translations)[typeof DEFAULT_LANG]
 
 export const translations = {
   [LANGUAGES.EN]: {
