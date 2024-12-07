@@ -1,4 +1,5 @@
-import { LANGUAGES, type Languages } from '@/i18n/config.i18n';
+import { LANGUAGES } from '@/i18n/config.i18n';
+import type { Languages } from '@/i18n/interfaces.i18n';
 import { getLangFromUrl, getRedirect } from '@/i18n/utils.i18n';
 import { usePortfolioStore } from '@/store/global.store';
 import { Menu, Transition } from '@headlessui/react';

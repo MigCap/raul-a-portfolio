@@ -1,21 +1,21 @@
-import { translations } from '@/i18n/ui.i18n';
 import {
-  type Languages,
-  type TranslationKey,
   DEFAULT_LANG,
-  LANGUAGES,
+  TRANSLATIONS,
+  ROUTE_PREFIX,
+  ROUTES_IDS,
+  ROUTES_TRANSLATIONS,
 } from './config.i18n';
-import { ROUTE_PREFIX, ROUTES_IDS, routesTranslations } from './routes.i18n';
+import type { Languages, TranslationKey } from './interfaces.i18n';
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
-  if (lang in routesTranslations) return lang as Languages;
+  if (lang in ROUTES_TRANSLATIONS) return lang as Languages;
   return DEFAULT_LANG;
 }
 
 export function useTranslations(lang: Languages) {
   return function t(key: TranslationKey) {
-    return translations[lang][key] || translations[DEFAULT_LANG][key];
+    return TRANSLATIONS[lang][key] || TRANSLATIONS[DEFAULT_LANG][key];
   };
 }
 
@@ -86,12 +86,15 @@ export function isActiveRoute(href: string, url: URL) {
   );
 }
 
+export function getHomePatch(url: URL) {
+  const lang = getLangFromUrl(url);
+
+  return `/${lang}/`;
+}
+
 export function getWorksPatch(url: URL) {
   const lang = getLangFromUrl(url);
-  const worksPathToLower =
-    lang === LANGUAGES.EN
-      ? ROUTES_IDS[LANGUAGES.EN].WORK.path
-      : ROUTES_IDS[LANGUAGES.ES].WORK.path;
+  const worksPathToLower = ROUTES_IDS[lang].WORK.path;
 
   return `/${lang}/${worksPathToLower}/`;
 }
