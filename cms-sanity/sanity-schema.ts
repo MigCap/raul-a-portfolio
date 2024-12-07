@@ -273,6 +273,7 @@ export interface Works extends SanityDocument {
  *
  */
 export interface Categories extends SanityDocument {
+  _id: string;
   _type: "categories";
 
   /**
@@ -349,6 +350,7 @@ export interface WorkExperience extends SanityDocument {
  *
  */
 export interface Testimonials extends SanityDocument {
+  _id: string;
   _type: "testimonials";
 
   /**
