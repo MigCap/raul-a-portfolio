@@ -1,44 +1,38 @@
-import {defineField, defineType} from 'sanity'
-import { requiredAllLanguagesValidation } from '../objects/validation'
+import { defineType } from "sanity";
+import { requiredAllLanguagesValidation } from "../objects/validation";
 
 export default defineType({
-  name: 'categories',
-  title: 'Categories',
-  type: 'document',
+  name: "categories",
+  title: "Categories",
+  type: "document",
   preview: {
     select: {
-      title: 'title',
-      imgUrl: 'imgUrl',
+      title: "title",
+      imgUrl: "imgUrl",
     },
-    prepare: ({title}: any) => {
+    prepare: ({ title }: any) => {
       return {
-        title: title[0].value
-      }
+        title: title[0].value,
+      };
     },
   },
   fields: [
-    defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
         source: (doc: any) => {
-          return doc.title[0].value
+          return doc.title[0].value;
         },
         maxLength: 96,
-
       },
-      validation: Rule => Rule.required()
-    }),
-    defineField({
-      name: 'title',
-      type: 'internationalizedArrayString',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "title",
+      type: "internationalizedArrayString",
       ...requiredAllLanguagesValidation,
-    }),
-    // defineField({
-    //   name: 'description',
-    //   title: 'Description',
-    //   type: 'text',
-    // }),
+    },
   ],
-})
+});
