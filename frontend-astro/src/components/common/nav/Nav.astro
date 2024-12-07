@@ -4,24 +4,24 @@ import LogoRaul from '@/components/common/icons/LogoRaul.astro';
 import LanguagePicker from '@/components/common/LanguagePicker';
 import ThemeToggle from '@/components/common/ThemeToggle.astro';
 import MenuButton from './MenuButton.astro';
-import { socialIconLinks } from '@/i18n/ui.i18n';
 import {
   isActiveRoute,
   getNavMenuLinksTranslated,
-  getLangFromUrl,
+  getHomePatch,
 } from '@/i18n/utils.i18n';
+import { SOCIAL_ICON_LINKS } from '@/i18n/config.i18n';
 
 const { url } = Astro;
 
 /** Main menu items */
-const textLinks = getNavMenuLinksTranslated(url);
-const lang = getLangFromUrl(url);
+const navMenuLinksTranslated = getNavMenuLinksTranslated(url);
+const homePageLinkTranslated = getHomePatch(url);
 ---
 
 <nav>
   <div class="inner-wrapper">
     <div class="menu-header">
-      <a href={`/${lang}/`} class="site-title w-10">
+      <a href={homePageLinkTranslated} class="site-title w-10">
         <LogoRaul />
         <!-- <span class="">{about.name}</span> -->
         <!-- <Icon
@@ -42,7 +42,7 @@ const lang = getLangFromUrl(url);
     <noscript>
       <ul class="nav-items">
         {
-          textLinks.map(({ label, href }) => (
+          navMenuLinksTranslated.map(({ label, href }) => (
             <li>
               <a
                 aria-current={url.pathname === href}
@@ -65,7 +65,7 @@ const lang = getLangFromUrl(url);
       <div class="menu-footer">
         <div class="socials">
           {
-            socialIconLinks.map(({ href, icon, label }) => (
+            SOCIAL_ICON_LINKS.map(({ href, icon, label }) => (
               <a href={href} class="social">
                 <span class="sr-only">{label}</span>
                 <Icon icon={icon} />
@@ -78,7 +78,7 @@ const lang = getLangFromUrl(url);
     <div id="menu-content" hidden>
       <ul class="nav-items">
         {
-          textLinks.map(({ label, href }) => (
+          navMenuLinksTranslated.map(({ label, href }) => (
             <li>
               <a
                 aria-current={url.pathname === href}
@@ -99,7 +99,7 @@ const lang = getLangFromUrl(url);
       <div class="menu-footer">
         <div class="socials">
           {
-            socialIconLinks.map(({ href, icon, label }) => (
+            SOCIAL_ICON_LINKS.map(({ href, icon, label }) => (
               <a href={href} class="social">
                 <span class="sr-only">{label}</span>
                 <Icon icon={icon} />
