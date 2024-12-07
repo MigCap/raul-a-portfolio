@@ -29,19 +29,19 @@ export function getCurrentTranslatedSectionFromUrl(url: URL) {
 
 export function getTranslatedRouteSection(
   section: string,
-  lang: any,
-  newLang: string,
+  lang: Languages,
+  newLang: Languages,
 ) {
   const routeIdsEntries = Object.entries(ROUTES_IDS[lang]);
   const routeSection: any = routeIdsEntries.find(
     ([_, value]: any) => value.path === section,
   );
-  const newLangToLower = newLang.toLowerCase();
+  const newLangToLower = newLang.toLowerCase() as Languages;
 
   return ROUTES_IDS[newLangToLower][routeSection?.[0]] || '';
 }
 
-export function getRedirect(newLang: string, url: URL) {
+export function getRedirect(newLang: Languages, url: URL) {
   const { pathname } = url;
 
   const lang = getLangFromUrl(url);

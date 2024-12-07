@@ -1,4 +1,4 @@
-import { DEFAULT_LANG, LANGUAGES } from './config.i18n';
+import { DEFAULT_LANG, LANGUAGES, type Languages } from './config.i18n';
 
 export type RouteTranslationsType = {
   HOME: {
@@ -35,7 +35,7 @@ export type RouteTranslationsType = {
   };
 };
 
-export type RoutesIdsType = Record<string, RouteTranslationsType>;
+export type RoutesIdsType = Record<Languages, RouteTranslationsType>;
 // export type RoutesIdsType = keyof (typeof ROUTES_IDS)[typeof DEFAULT_LANG]
 
 export const ROUTES_IDS: RoutesIdsType = {
@@ -166,7 +166,7 @@ export type RouteTranslationKey =
 
 export const ROUTE_PREFIX = 'route.';
 
-const getRouteTranslations = (lang: any) => {
+const getRouteTranslations = (lang: Languages) => {
   const routeIdByLang = ROUTES_IDS[lang];
   const translations = Object.keys(routeIdByLang).reduce((acc, routeKey) => {
     return {
